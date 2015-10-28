@@ -30,7 +30,7 @@ namespace TrabajoFinalCines
             nombre.DisplayMember = cnx.pDataTable.Columns[1].ColumnName;
         }
 
-        public void cargarLista(ListBox nombre, string tabla, out Producto[] vector)
+        /*public void cargarLista(ListBox nombre, string tabla, out Producto[] vector)
         {
             Producto[] vp = new Producto[50];
             cnx.readTable(tabla);
@@ -63,7 +63,7 @@ namespace TrabajoFinalCines
             }
 
             vector = vp;
-        }
+        }*/
 
         public void limpiarText(Form form)
         {
