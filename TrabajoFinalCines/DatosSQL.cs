@@ -47,6 +47,11 @@ namespace TrabajoFinalCines
             set { cadenaConexion = value; }
             get { return cadenaConexion; }
         }
+        public DataTable pDataTable
+        {
+            set { dataTable = value; }
+            get { return dataTable; }
+        }
 
         // Metodos
         public void conectar()
