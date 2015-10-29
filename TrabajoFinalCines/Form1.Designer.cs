@@ -29,21 +29,32 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblTituloCine = new System.Windows.Forms.Label();
             this.tabControlPrincipal = new System.Windows.Forms.TabControl();
-            this.tabPageLogin = new System.Windows.Forms.TabPage();
+            this.tabPageUsuario = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.tabPageResetear = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lblUsuario = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtContrasenia = new System.Windows.Forms.TextBox();
             this.lblContrasenia = new System.Windows.Forms.Label();
+            this.txtUsuario = new System.Windows.Forms.TextBox();
+            this.lblUsuario = new System.Windows.Forms.Label();
+            this.tabPageAdmin = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.txtContrasenia2 = new System.Windows.Forms.TextBox();
+            this.lblContrasenia2 = new System.Windows.Forms.Label();
+            this.txtAdministrador = new System.Windows.Forms.TextBox();
+            this.lblAdministrador = new System.Windows.Forms.Label();
+            this.btnLogin = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabControlPrincipal.SuspendLayout();
-            this.tabPageLogin.SuspendLayout();
+            this.tabPageUsuario.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.tabPageAdmin.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -54,7 +65,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.Controls.Add(this.label2, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lblTituloCine, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.tabControlPrincipal, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -66,24 +77,24 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(743, 488);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // label2
+            // lblTituloCine
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(151, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(439, 97);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "CINES DZPS";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTituloCine.AutoSize = true;
+            this.lblTituloCine.BackColor = System.Drawing.Color.Transparent;
+            this.lblTituloCine.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTituloCine.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTituloCine.ForeColor = System.Drawing.Color.Red;
+            this.lblTituloCine.Location = new System.Drawing.Point(151, 0);
+            this.lblTituloCine.Name = "lblTituloCine";
+            this.lblTituloCine.Size = new System.Drawing.Size(439, 97);
+            this.lblTituloCine.TabIndex = 1;
+            this.lblTituloCine.Text = "CINES DZPS";
+            this.lblTituloCine.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tabControlPrincipal
             // 
-            this.tabControlPrincipal.Controls.Add(this.tabPageLogin);
-            this.tabControlPrincipal.Controls.Add(this.tabPageResetear);
+            this.tabControlPrincipal.Controls.Add(this.tabPageUsuario);
+            this.tabControlPrincipal.Controls.Add(this.tabPageAdmin);
             this.tabControlPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlPrincipal.Location = new System.Drawing.Point(151, 100);
             this.tabControlPrincipal.Name = "tabControlPrincipal";
@@ -91,20 +102,21 @@
             this.tabControlPrincipal.Size = new System.Drawing.Size(439, 286);
             this.tabControlPrincipal.TabIndex = 2;
             // 
-            // tabPageLogin
+            // tabPageUsuario
             // 
-            this.tabPageLogin.BackColor = System.Drawing.Color.Transparent;
-            this.tabPageLogin.Controls.Add(this.tableLayoutPanel2);
-            this.tabPageLogin.Location = new System.Drawing.Point(4, 22);
-            this.tabPageLogin.Name = "tabPageLogin";
-            this.tabPageLogin.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageLogin.Size = new System.Drawing.Size(431, 260);
-            this.tabPageLogin.TabIndex = 0;
-            this.tabPageLogin.Text = "Login";
+            this.tabPageUsuario.BackColor = System.Drawing.Color.Transparent;
+            this.tabPageUsuario.Controls.Add(this.tableLayoutPanel2);
+            this.tabPageUsuario.Location = new System.Drawing.Point(4, 22);
+            this.tabPageUsuario.Name = "tabPageUsuario";
+            this.tabPageUsuario.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageUsuario.Size = new System.Drawing.Size(431, 260);
+            this.tabPageUsuario.TabIndex = 0;
+            this.tabPageUsuario.Text = "Usuario";
             // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tableLayoutPanel2.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
@@ -120,27 +132,45 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(425, 254);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
-            // tabPageResetear
-            // 
-            this.tabPageResetear.Location = new System.Drawing.Point(4, 22);
-            this.tabPageResetear.Name = "tabPageResetear";
-            this.tabPageResetear.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageResetear.Size = new System.Drawing.Size(431, 260);
-            this.tabPageResetear.TabIndex = 1;
-            this.tabPageResetear.Text = "Resetear";
-            this.tabPageResetear.UseVisualStyleBackColor = true;
-            // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.txtContrasenia);
             this.panel1.Controls.Add(this.lblContrasenia);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.txtUsuario);
             this.panel1.Controls.Add(this.lblUsuario);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(45, 28);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(334, 197);
             this.panel1.TabIndex = 0;
+            // 
+            // txtContrasenia
+            // 
+            this.txtContrasenia.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContrasenia.Location = new System.Drawing.Point(105, 119);
+            this.txtContrasenia.Name = "txtContrasenia";
+            this.txtContrasenia.PasswordChar = '*';
+            this.txtContrasenia.Size = new System.Drawing.Size(129, 26);
+            this.txtContrasenia.TabIndex = 3;
+            // 
+            // lblContrasenia
+            // 
+            this.lblContrasenia.AutoSize = true;
+            this.lblContrasenia.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblContrasenia.Location = new System.Drawing.Point(97, 91);
+            this.lblContrasenia.Name = "lblContrasenia";
+            this.lblContrasenia.Size = new System.Drawing.Size(145, 26);
+            this.lblContrasenia.TabIndex = 2;
+            this.lblContrasenia.Text = "Contraseña";
+            // 
+            // txtUsuario
+            // 
+            this.txtUsuario.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsuario.Location = new System.Drawing.Point(105, 59);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(129, 26);
+            this.txtUsuario.TabIndex = 1;
             // 
             // lblUsuario
             // 
@@ -152,32 +182,105 @@
             this.lblUsuario.TabIndex = 0;
             this.lblUsuario.Text = "Usuario";
             // 
-            // textBox1
+            // tabPageAdmin
             // 
-            this.textBox1.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(105, 59);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(129, 26);
-            this.textBox1.TabIndex = 1;
+            this.tabPageAdmin.Controls.Add(this.tableLayoutPanel3);
+            this.tabPageAdmin.Location = new System.Drawing.Point(4, 22);
+            this.tabPageAdmin.Name = "tabPageAdmin";
+            this.tabPageAdmin.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageAdmin.Size = new System.Drawing.Size(431, 260);
+            this.tabPageAdmin.TabIndex = 1;
+            this.tabPageAdmin.Text = "Administrador";
+            this.tabPageAdmin.UseVisualStyleBackColor = true;
             // 
-            // textBox2
+            // tableLayoutPanel3
             // 
-            this.textBox2.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(105, 131);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.PasswordChar = '·';
-            this.textBox2.Size = new System.Drawing.Size(129, 26);
-            this.textBox2.TabIndex = 3;
+            this.tableLayoutPanel3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tableLayoutPanel3.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.tableLayoutPanel3.ColumnCount = 3;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel3.Controls.Add(this.panel2, 1, 1);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 3;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(425, 254);
+            this.tableLayoutPanel3.TabIndex = 1;
             // 
-            // lblContrasenia
+            // panel2
             // 
-            this.lblContrasenia.AutoSize = true;
-            this.lblContrasenia.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContrasenia.Location = new System.Drawing.Point(97, 103);
-            this.lblContrasenia.Name = "lblContrasenia";
-            this.lblContrasenia.Size = new System.Drawing.Size(145, 26);
-            this.lblContrasenia.TabIndex = 2;
-            this.lblContrasenia.Text = "Contraseña";
+            this.panel2.Controls.Add(this.btnLogin);
+            this.panel2.Controls.Add(this.txtContrasenia2);
+            this.panel2.Controls.Add(this.lblContrasenia2);
+            this.panel2.Controls.Add(this.txtAdministrador);
+            this.panel2.Controls.Add(this.lblAdministrador);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(45, 28);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(334, 197);
+            this.panel2.TabIndex = 0;
+            // 
+            // txtContrasenia2
+            // 
+            this.txtContrasenia2.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContrasenia2.Location = new System.Drawing.Point(105, 119);
+            this.txtContrasenia2.Name = "txtContrasenia2";
+            this.txtContrasenia2.PasswordChar = '*';
+            this.txtContrasenia2.Size = new System.Drawing.Size(129, 26);
+            this.txtContrasenia2.TabIndex = 3;
+            // 
+            // lblContrasenia2
+            // 
+            this.lblContrasenia2.AutoSize = true;
+            this.lblContrasenia2.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblContrasenia2.Location = new System.Drawing.Point(97, 91);
+            this.lblContrasenia2.Name = "lblContrasenia2";
+            this.lblContrasenia2.Size = new System.Drawing.Size(145, 26);
+            this.lblContrasenia2.TabIndex = 2;
+            this.lblContrasenia2.Text = "Contraseña";
+            // 
+            // txtAdministrador
+            // 
+            this.txtAdministrador.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAdministrador.Location = new System.Drawing.Point(105, 59);
+            this.txtAdministrador.Name = "txtAdministrador";
+            this.txtAdministrador.Size = new System.Drawing.Size(129, 26);
+            this.txtAdministrador.TabIndex = 1;
+            // 
+            // lblAdministrador
+            // 
+            this.lblAdministrador.AutoSize = true;
+            this.lblAdministrador.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAdministrador.Location = new System.Drawing.Point(74, 30);
+            this.lblAdministrador.Name = "lblAdministrador";
+            this.lblAdministrador.Size = new System.Drawing.Size(190, 26);
+            this.lblAdministrador.TabIndex = 0;
+            this.lblAdministrador.Text = "Administrador";
+            // 
+            // btnLogin
+            // 
+            this.btnLogin.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnLogin.Location = new System.Drawing.Point(105, 156);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(129, 31);
+            this.btnLogin.TabIndex = 6;
+            this.btnLogin.Text = "Loguearse";
+            this.btnLogin.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button1.Location = new System.Drawing.Point(105, 156);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(129, 31);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Loguearse";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // frmLogin
             // 
@@ -191,10 +294,14 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tabControlPrincipal.ResumeLayout(false);
-            this.tabPageLogin.ResumeLayout(false);
+            this.tabPageUsuario.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.tabPageAdmin.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -202,16 +309,24 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblTituloCine;
         private System.Windows.Forms.TabControl tabControlPrincipal;
-        private System.Windows.Forms.TabPage tabPageLogin;
-        private System.Windows.Forms.TabPage tabPageResetear;
+        private System.Windows.Forms.TabPage tabPageUsuario;
+        private System.Windows.Forms.TabPage tabPageAdmin;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtContrasenia;
         private System.Windows.Forms.Label lblContrasenia;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.Label lblUsuario;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TextBox txtContrasenia2;
+        private System.Windows.Forms.Label lblContrasenia2;
+        private System.Windows.Forms.TextBox txtAdministrador;
+        private System.Windows.Forms.Label lblAdministrador;
+        private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.Button button1;
     }
 }
 
