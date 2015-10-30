@@ -63,7 +63,8 @@ namespace TrabajoFinalCines
             }
             catch(Exception ex)
             {
-                MessageBox.Show("Error al establecer la conexión. A continuación se detallan los errores capturados: "+ ex.ToString());
+                MessageBox.Show("Error al establecer la conexión. A continuación se detallan los errores capturados.", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.ToString());
             }
             comando.Connection = conexion;
             comando.CommandType = CommandType.Text;

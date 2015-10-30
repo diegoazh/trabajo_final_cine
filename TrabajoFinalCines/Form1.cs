@@ -12,9 +12,18 @@ namespace TrabajoFinalCines
 {
     public partial class frmLogin : Form
     {
+        DatosSQL con;
+        string database = "Data Source=.;Initial Catalog=CINES;Integrated Security=True";
+
         public frmLogin()
         {
             InitializeComponent();
+        }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+            con = new DatosSQL(database);
+            con.conectar();
         }
     }
 }

@@ -34,6 +34,7 @@
             this.tabPageUsuario = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.txtContrasenia = new System.Windows.Forms.TextBox();
             this.lblContrasenia = new System.Windows.Forms.Label();
             this.txtUsuario = new System.Windows.Forms.TextBox();
@@ -41,12 +42,11 @@
             this.tabPageAdmin = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnLogin = new System.Windows.Forms.Button();
             this.txtContrasenia2 = new System.Windows.Forms.TextBox();
             this.lblContrasenia2 = new System.Windows.Forms.Label();
             this.txtAdministrador = new System.Windows.Forms.TextBox();
             this.lblAdministrador = new System.Windows.Forms.Label();
-            this.btnLogin = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabControlPrincipal.SuspendLayout();
             this.tabPageUsuario.SuspendLayout();
@@ -145,6 +145,16 @@
             this.panel1.Size = new System.Drawing.Size(334, 197);
             this.panel1.TabIndex = 0;
             // 
+            // button1
+            // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button1.Location = new System.Drawing.Point(105, 156);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(129, 31);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Loguearse";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // txtContrasenia
             // 
             this.txtContrasenia.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -225,6 +235,16 @@
             this.panel2.Size = new System.Drawing.Size(334, 197);
             this.panel2.TabIndex = 0;
             // 
+            // btnLogin
+            // 
+            this.btnLogin.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnLogin.Location = new System.Drawing.Point(105, 156);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(129, 31);
+            this.btnLogin.TabIndex = 6;
+            this.btnLogin.Text = "Loguearse";
+            this.btnLogin.UseVisualStyleBackColor = true;
+            // 
             // txtContrasenia2
             // 
             this.txtContrasenia2.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -262,35 +282,20 @@
             this.lblAdministrador.TabIndex = 0;
             this.lblAdministrador.Text = "Administrador";
             // 
-            // btnLogin
-            // 
-            this.btnLogin.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnLogin.Location = new System.Drawing.Point(105, 156);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(129, 31);
-            this.btnLogin.TabIndex = 6;
-            this.btnLogin.Text = "Loguearse";
-            this.btnLogin.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.Location = new System.Drawing.Point(105, 156);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(129, 31);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Loguearse";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(743, 488);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(759, 527);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(759, 527);
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.frmLogin_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tabControlPrincipal.ResumeLayout(false);
