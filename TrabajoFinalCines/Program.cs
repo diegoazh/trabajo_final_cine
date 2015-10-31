@@ -32,9 +32,9 @@ namespace TrabajoFinalCines
             do
             {
                 log.ShowDialog(); // lo llamamos, como necesitamos un stop (osea que inicie y se quede ahí) usamos el ShowDialog, pues el simple Show no tendría efecto a este nivel.
-            } while (log.DialogResult != DialogResult.Yes); // mientras el DialogResult del frmLogin sea cancel o sea diferente de Yes (cuando hacemos clic en el boton cerrar) llamaremos al frmLogin.
+            } while (log.DialogResult != DialogResult.Yes); // mientras el DialogResult del frmLogin sea diferente de Yes (cuando hacemos clic en el boton cerrar) llamaremos al frmLogin.
 
-            if (log.pRes == "OK") // si salimos del bucle fue porque el reultado fue Yes u OK, si fue OK o diferente de Yes iniciamos la app, de otra forma el programa finaliza.
+            if (log.pRes == "OK") // si salimos del bucle fue porque el reultado fue Yes, result de frmLogin contiene el string OK iniciamos la app, de otra forma el programa finaliza.
                 Application.Run(new frmAppPrincipal());
         }
     }
