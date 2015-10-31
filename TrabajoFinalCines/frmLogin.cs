@@ -15,6 +15,12 @@ namespace TrabajoFinalCines
         DatosSQL con;
         string database = "Data Source=.;Initial Catalog=CINES;Integrated Security=True";
         string user, pass;
+        string result; // esta variable la vamos a utilizar en la clase program para evaluar si iniciamos la app principal o no.
+        public string pRes // esta propiedad nos va a servir para lo antes mensionado.
+        {
+            set { result = value; }
+            get { return result; }
+        }
 
         public frmLogin()
         {
@@ -51,7 +57,10 @@ namespace TrabajoFinalCines
             }
 
             if (con.validarUsuario(user, pass))
-                this.DialogResult = DialogResult.OK; // esto nos sirve para llamar al frmAppPrincipal
+            {
+                this.DialogResult = DialogResult.Yes; // esto nos sirve para llamar al frmAppPrincipal
+                result = "OK";
+            }
             else
                 MessageBox.Show("Algo salio mal"); // si el login fue false mostramos el mensaje
         }
