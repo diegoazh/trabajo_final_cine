@@ -51,9 +51,14 @@ namespace TrabajoFinalCines
             }
 
             if (con.validarUsuario(user, pass))
-                MessageBox.Show("Logueado");
+                this.DialogResult = DialogResult.OK; // esto nos sirve para llamar al frmAppPrincipal
             else
-                MessageBox.Show("Algo salio mal");
+                MessageBox.Show("Algo salio mal"); // si el login fue false mostramos el mensaje
+        }
+
+        private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.DialogResult = DialogResult.Yes; // esto nos sirve para cerrar el form de logueo
         }
     }
 }

@@ -16,7 +16,28 @@ namespace TrabajoFinalCines
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmLogin());
+
+            /******************************************************************************************************************************************************
+             * Lo que vamos a realizar ahora es iniciar el form de login antes de iniciar la app principal.
+             * Esto lo hacemos asi porque de otra forma la app se iniciaría de igual forma con todo el acceso
+             * a los datos que ello representa. Otras formas serían iniciar la app y luego esconder el form principal
+             * con this.Hide(); pero esto inicia la app y solo la oculta, lo cual permitiría tambien el acceso a los
+             * datos aunque con un poco más de dificultad.
+             * 
+             * Para más detalles de lo que vamos a realizar ver el siguiente post: http://ltuttini.blogspot.com.ar/2009/09/c-winforms-realizar-tareas-antes-de.html
+             * 
+             ******************************************************************************************************************************************************/
+            frmLogin log = new frmLogin(); // creamos el objeto del form
+            DialogResult res;
+
+            do
+            {
+                log.ShowDialog(); // lo llamamos, como necesitamos un stop (osea que inicie y se quede ahí) usamos el ShowDialog, pues el simple Show no tendría efecto a este nivel.
+                res = log.DialogResult; // capturamos el resultado siempre, para poder evaluarlo una vez salgamos del bucle.
+            } while (log.DialogResult == DialogResult.Cancel || log.DialogResult != DialogResult.Yes); // mientras el DialogResult del frmLogin sea cancel o sea diferente de Yes (cuando hacemos clic en el boton cerrar) llamaremos al frmLogin.
+
+            if (res == DialogResult.OK || res != DialogResult.Yes) // si salimos del bucle fue porque el reultado fue Yes u OK, si fue OK o diferente de Yes iniciamos la app, de otra forma el programa finaliza.
+            Application.Run(new frmAppPrincipal());
         }
     }
 }
