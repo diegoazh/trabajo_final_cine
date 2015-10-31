@@ -119,16 +119,30 @@ namespace TrabajoFinalCines
         {
             // para más información visite esta referencia https://msdn.microsoft.com/es-ar/library/cc438155(v=vs.71).aspx
             bool result; // creamos la variable que devolvera el metodo
+
             comando.CommandText = "validarUsuario"; // indicamos cual es el procedimiento de sqlserver que se utilizará
             comando.CommandType = System.Data.CommandType.StoredProcedure; // indicamos que el tipo de comando es un procedimiento
-            comando.Parameters.Add("@Name", SqlDbType.NVarChar, 30).Value = user; // declaramos los parametros que recibe el procedimiento.
-            comando.Parameters.Add("@Pass", SqlDbType.NVarChar, 30).Value = pass; // declaramos los parametros que recibe el procedimiento.
-            comando.Parameters.Add("@Result", SqlDbType.Bit).Direction = ParameterDirection.Output; // declaramos el parametro que devuelve el procedimiento y su dirección, osea "output"
+
+            if (comando.Parameters.Contains("@Name")
+                || comando.Parameters.Contains("@Pass")
+                || comando.Parameters.Contains("@Result")) // Preguntamos si los parametros ya existen, si no hacemos esto despues del primer intento en caso de ser fallido, no podriamos ejecutar un segundo intento porque daria  un error, pues estaríamos creando nuevamente los parametros que ya existen
+            {
+                comando.Parameters["@Name"].Value = user;
+                comando.Parameters["@Pass"].Value = pass;
+            }
+            else // si no existen los parametros los creamos.
+            {
+                comando.Parameters.Add("@Name", SqlDbType.NVarChar, 30).Value = user; // declaramos los parametros que recibe el procedimiento.
+                comando.Parameters.Add("@Pass", SqlDbType.NVarChar, 30).Value = pass; // declaramos los parametros que recibe el procedimiento.
+                comando.Parameters.Add("@Result", SqlDbType.Bit).Direction = ParameterDirection.Output; // declaramos el parametro que devuelve el procedimiento y su dirección, osea "output"
+            }
+
             conexion.ConnectionString = cadenaConexion; // creamos una nueva conexión, tener cuidado el metodo conectar no sirve porque nos cambia el comandType a text
             conexion.Open(); // abrimos la conexión
             comando.Connection = conexion; // indicamos cual sera la conexión a usar por el comando
             comando.ExecuteNonQuery(); // ejecutamos el comando contra la base de datos
             desconectar(); // desconectamos
+
             result = (bool)(comando.Parameters["@Result"].Value); // asignamos a la variable result el parametro que nos devuelve el procedimiento, que es un bit en sql, lo cual nos indica que en c# es de tipo bool (ver https://msdn.microsoft.com/es-es/library/yy6y35y8(v=vs.110).aspx)
             return result; // retornamos el valor
         }
