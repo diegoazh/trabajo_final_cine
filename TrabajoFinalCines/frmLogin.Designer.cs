@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            this.epUsuario = new System.Windows.Forms.ErrorProvider(this.components);
+            this.epContrasenia = new System.Windows.Forms.ErrorProvider(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lblTituloCine = new System.Windows.Forms.Label();
             this.tabControlPrincipal = new System.Windows.Forms.TabControl();
@@ -47,6 +50,10 @@
             this.lblContrasenia2 = new System.Windows.Forms.Label();
             this.txtAdministrador = new System.Windows.Forms.TextBox();
             this.lblAdministrador = new System.Windows.Forms.Label();
+            this.epAdministrador = new System.Windows.Forms.ErrorProvider(this.components);
+            this.epContrasenia2 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.epUsuario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epContrasenia)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabControlPrincipal.SuspendLayout();
             this.tabPageUsuario.SuspendLayout();
@@ -55,12 +62,23 @@
             this.tabPageAdmin.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.epAdministrador)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epContrasenia2)).BeginInit();
             this.SuspendLayout();
+            // 
+            // epUsuario
+            // 
+            this.epUsuario.ContainerControl = this;
+            // 
+            // epContrasenia
+            // 
+            this.epContrasenia.ContainerControl = this;
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel1.BackgroundImage = global::TrabajoFinalCines.Properties.Resources.cines1;
+            this.tableLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
@@ -100,7 +118,7 @@
             this.tabControlPrincipal.Name = "tabControlPrincipal";
             this.tabControlPrincipal.SelectedIndex = 0;
             this.tabControlPrincipal.Size = new System.Drawing.Size(439, 286);
-            this.tabControlPrincipal.TabIndex = 2;
+            this.tabControlPrincipal.TabIndex = 1;
             // 
             // tabPageUsuario
             // 
@@ -151,7 +169,7 @@
             this.button1.Location = new System.Drawing.Point(105, 156);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(129, 31);
-            this.button1.TabIndex = 7;
+            this.button1.TabIndex = 2;
             this.button1.Text = "Loguearse";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -163,7 +181,8 @@
             this.txtContrasenia.Name = "txtContrasenia";
             this.txtContrasenia.PasswordChar = '*';
             this.txtContrasenia.Size = new System.Drawing.Size(129, 26);
-            this.txtContrasenia.TabIndex = 3;
+            this.txtContrasenia.TabIndex = 1;
+            this.txtContrasenia.Leave += new System.EventHandler(this.txtContrasenia_Leave);
             // 
             // lblContrasenia
             // 
@@ -172,7 +191,7 @@
             this.lblContrasenia.Location = new System.Drawing.Point(97, 91);
             this.lblContrasenia.Name = "lblContrasenia";
             this.lblContrasenia.Size = new System.Drawing.Size(145, 26);
-            this.lblContrasenia.TabIndex = 2;
+            this.lblContrasenia.TabIndex = 3;
             this.lblContrasenia.Text = "Contraseña";
             // 
             // txtUsuario
@@ -181,7 +200,8 @@
             this.txtUsuario.Location = new System.Drawing.Point(105, 59);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(129, 26);
-            this.txtUsuario.TabIndex = 1;
+            this.txtUsuario.TabIndex = 0;
+            this.txtUsuario.Leave += new System.EventHandler(this.txtUsuario_Leave);
             // 
             // lblUsuario
             // 
@@ -190,7 +210,7 @@
             this.lblUsuario.Location = new System.Drawing.Point(118, 30);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(102, 26);
-            this.lblUsuario.TabIndex = 0;
+            this.lblUsuario.TabIndex = 1;
             this.lblUsuario.Text = "Usuario";
             // 
             // tabPageAdmin
@@ -254,6 +274,7 @@
             this.txtContrasenia2.PasswordChar = '*';
             this.txtContrasenia2.Size = new System.Drawing.Size(129, 26);
             this.txtContrasenia2.TabIndex = 3;
+            this.txtContrasenia2.Leave += new System.EventHandler(this.txtContrasenia2_Leave);
             // 
             // lblContrasenia2
             // 
@@ -272,6 +293,7 @@
             this.txtAdministrador.Name = "txtAdministrador";
             this.txtAdministrador.Size = new System.Drawing.Size(129, 26);
             this.txtAdministrador.TabIndex = 1;
+            this.txtAdministrador.Leave += new System.EventHandler(this.txtAdministrador_Leave);
             // 
             // lblAdministrador
             // 
@@ -282,6 +304,14 @@
             this.lblAdministrador.Size = new System.Drawing.Size(190, 26);
             this.lblAdministrador.TabIndex = 0;
             this.lblAdministrador.Text = "Administrador";
+            // 
+            // epAdministrador
+            // 
+            this.epAdministrador.ContainerControl = this;
+            // 
+            // epContrasenia2
+            // 
+            this.epContrasenia2.ContainerControl = this;
             // 
             // frmLogin
             // 
@@ -298,6 +328,8 @@
             this.Text = "Login";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmLogin_FormClosing);
             this.Load += new System.EventHandler(this.frmLogin_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.epUsuario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epContrasenia)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tabControlPrincipal.ResumeLayout(false);
@@ -309,6 +341,8 @@
             this.tableLayoutPanel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.epAdministrador)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epContrasenia2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -334,6 +368,10 @@
         private System.Windows.Forms.Label lblAdministrador;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ErrorProvider epUsuario;
+        private System.Windows.Forms.ErrorProvider epContrasenia;
+        private System.Windows.Forms.ErrorProvider epAdministrador;
+        private System.Windows.Forms.ErrorProvider epContrasenia2;
     }
 }
 

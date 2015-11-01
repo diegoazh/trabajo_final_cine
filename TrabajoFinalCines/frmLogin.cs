@@ -69,5 +69,57 @@ namespace TrabajoFinalCines
         {
             this.DialogResult = DialogResult.Yes; // esto nos sirve para cerrar el form de logueo
         }
+
+        private void txtUsuario_Leave(object sender, EventArgs e)
+        {
+            if(String.IsNullOrEmpty(txtUsuario.Text))
+            {
+                epUsuario.Icon = Properties.Resources.error;
+                epUsuario.SetError(txtUsuario, "Este campo no puede quedar vacio");
+            }
+            else
+            {
+                epUsuario.Icon = Properties.Resources.success;
+            }
+        }
+
+        private void txtContrasenia_Leave(object sender, EventArgs e)
+        {
+            if(String.IsNullOrEmpty(txtContrasenia.Text))
+            {
+                epContrasenia.Icon = Properties.Resources.error;
+                epContrasenia.SetError(txtContrasenia, "Este campo no puede quedar vacio");
+            }
+            else
+            {
+                epContrasenia.Icon = Properties.Resources.success;
+            }
+        }
+
+        private void txtAdministrador_Leave(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(txtAdministrador.Text))
+            {
+                epAdministrador.Icon = Properties.Resources.error;
+                epAdministrador.SetError(txtAdministrador, "Este campo no puede quedar vacio");
+            }
+            else
+            {
+                epAdministrador.Icon = Properties.Resources.success;
+            }
+        }
+
+        private void txtContrasenia2_Leave(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(txtContrasenia2.Text))
+            {
+                epContrasenia2.Icon = Properties.Resources.error;
+                epContrasenia2.SetError(txtContrasenia2, "Este campo no puede quedar vacio");
+            }
+            else
+            {
+                epContrasenia2.Icon = Properties.Resources.success;
+            }
+        }
     }
 }
