@@ -8,7 +8,7 @@ Diego Zapata
 # Tematica
 Emular de la forma más real posible el sistema de gestión de una cadena de cines.
 
-# C#
+# C&num;
 Programación orientada a objetos con conexión a datos en SQL server.
 
 # SQL Server
