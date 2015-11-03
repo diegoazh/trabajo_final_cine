@@ -15,7 +15,7 @@ namespace TrabajoFinalCines
      *********************************************************************/
     class ManejoForm
     {
-        DatosSQL cnx;
+        private DatosSQL cnx;
 
         public ManejoForm(DatosSQL conexion)
         {
@@ -25,9 +25,9 @@ namespace TrabajoFinalCines
         public void cargarCombo(ComboBox nombre, string tabla)
         {
             cnx.selectAsterisco(tabla);
-            nombre.DataSource = cnx.pDataTable;
-            nombre.ValueMember = cnx.pDataTable.Columns[0].ColumnName;
-            nombre.DisplayMember = cnx.pDataTable.Columns[1].ColumnName;
+            nombre.DataSource = cnx.DataTable;
+            nombre.ValueMember = cnx.DataTable.Columns[0].ColumnName;
+            nombre.DisplayMember = cnx.DataTable.Columns[1].ColumnName;
         }
 
         /*public void cargarLista(ListBox nombre, string tabla, out Producto[] vector)

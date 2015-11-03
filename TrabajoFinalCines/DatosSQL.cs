@@ -37,17 +37,17 @@ namespace TrabajoFinalCines
         }
 
         // Propiedades
-        public SqlDataReader pDataReader
+        public SqlDataReader DataReader
         {
             set { dataReader = value; }
             get { return dataReader; }
         }
-        public string pCadenaConexion
+        public string CadenaConexion
         {
             set { cadenaConexion = value; }
             get { return cadenaConexion; }
         }
-        public DataTable pDataTable
+        public DataTable DataTable
         {
             set { dataTable = value; }
             get { return dataTable; }
