@@ -8,12 +8,14 @@ namespace TrabajoFinalCines
 {
     class Pelicula
     {
+        // Atributos
         private string nombre;
         private string descripcion;
         private string duracion;
         private int genero;
         private int calificacion;
 
+        // Constructor
         public Pelicula()
         {
             nombre = "";
@@ -31,5 +33,39 @@ namespace TrabajoFinalCines
             this.calificacion = calificacion;
         }
 
+        // Propiedades
+        public string Nombre
+        {
+            set { nombre = value; }
+            get { return nombre; }
+        }
+        public string Descripcion
+        {
+            set { descripcion = value; }
+            get { return descripcion; }
+        }
+        public string Duracion
+        {
+            set { duracion = value; }
+            get { return duracion; }
+        }
+        public int Genero
+        {
+            set { genero = value; }
+            get { return genero; }
+        }
+        public int Calificacion
+        {
+            set { calificacion = value; }
+            get { return calificacion; }
+        }
+
+        // Metodos toString
+        public override string ToString()
+        {
+            return base.ToString();
+        }
+
+        // Otros metodos
     }
 }

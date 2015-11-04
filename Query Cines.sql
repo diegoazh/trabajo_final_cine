@@ -87,6 +87,8 @@ go
 create table Tipo_Promociones(
 id_tipo int identity(1,1),
 nombre varchar(50),
+descuento int not null,
+descripcion varchar(150),
 acumulable bit not null,
 constraint PkIdTipo primary key(id_tipo)
 )
@@ -113,7 +115,7 @@ constraint PkFormPago primary key (id_form_pago)
 go
 create table Cines(
 id_cine int identity(1,1) not null,
-Cine varchar (50) not null,
+nombre varchar (50) not null,
 razon_social varchar not null,
 cuit bigint not null,
 direccion varchar not null,
@@ -127,13 +129,15 @@ references Barrios (id_barrio)
 )
 go
 create table Facturas(
-id_factura int identity(1,1) not null,
+id_factura bigint identity(1,1),
+nro_factura bigint not null,
 fecha datetime not null,
 id_cine int not null,
 id_cliente int null,
 id_form_pago int not null,
 id_promocion int,
-constraint PkFactura primary key (id_factura),
+constraint PkIdFactura primary key (id_factura),
+constraint U_NroFactura unique(nro_factura),
 constraint FkCinefa foreign key (id_cine)
 references Cines (id_cine),
 constraint FkClienteFa foreign key (id_cliente)
@@ -209,13 +213,13 @@ constraint FKIdEstado foreign key (id_estado)
 references EstadoButacas (id_estado)
 )
 go
-create table Horarios(
-id_horario int identity(1,1),
+create table Funciones(
+id_funcion int identity(1,1),
 id_sala int,
 id_pelicula int,
 hs_inicio time(0),
 hs_finalizacion time(0),
-constraint PkIdSyP primary key(id_horario),
+constraint PkIdSyP primary key(id_funcion),
 constraint FkIdSala foreign key(id_sala)
 references Salas(id_sala),
 constraint FkIdPelicula foreign key(id_pelicula)
@@ -227,7 +231,7 @@ id_detalle int identity(1,1) not null,
 precio money not null,
 descuento int not null,
 id_butaca int,
-id_factura int,
+id_factura bigint,
 constraint PkDetalle primary key (id_detalle),
 constraint FkButacadf foreign key (id_butaca)
 references Butacas (id_butaca),
@@ -236,7 +240,7 @@ references Facturas (id_factura)
 )
 go
 create table Reservas(
-id_reserva int identity(1,1),
+id_reserva bigint identity(1,1),
 id_cliente int,
 fechaYHora datetime not null,
 constraint PkIdReserva primary key(id_reserva),
@@ -246,7 +250,7 @@ references Clientes(id_cliente)
 go
 create table Detalles_Reservas(
 id_detalle int identity(1,1),
-id_reserva int,
+id_reserva bigint,
 id_butaca int,
 constraint PkIdDetalleReserva primary key(id_detalle),
 constraint FkIdReserva foreign key(id_reserva)
@@ -331,7 +335,7 @@ go
 
 /******************************************************
  *
- * Inserts de las DB
+ * Inserts de las Usuarios
  *
  ******************************************************/
  insert into user_categories(categoria) values('Administrador');
@@ -349,22 +353,3 @@ go
  go
  insert into users(nickname, contrasenia, id_tipo) values('emple',ENCRYPTBYPASSPHRASE('CinesDzPs','EmpleCine'),4);
  go
-
- /******************************************************
- *
- * Pruebas
- *
- ******************************************************/
-
-/*
-select * from users;
-
-select convert(varchar(300),DECRYPTBYPASSPHRASE('CinesDzPs',contrasenia)) 'contraseña' from users where id = 1;
-
-select DECRYPTBYPASSPHRASE('CinesDzPs',contrasenia) 'contraseña' from users where id = 1;
-
--- Estas instrucciones van juntas por lo general
-delete from users
-go
-DBCC CHECKIDENT('users', RESEED, 0)--Reinicia la lleva primaria.
-*/
