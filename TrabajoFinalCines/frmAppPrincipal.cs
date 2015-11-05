@@ -19,7 +19,7 @@ namespace TrabajoFinalCines
 
         private void frmAppPrincipal_Load(object sender, EventArgs e)
         {
-            
+
         }
     }
 }
