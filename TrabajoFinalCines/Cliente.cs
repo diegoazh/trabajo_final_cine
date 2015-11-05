@@ -45,6 +45,7 @@ namespace TrabajoFinalCines
             localidad = 0;
             provincia = 0;
             condicionFiscal = 0;
+            razonSocial = 0;
             beneficio = 0;
             socio = false;
             fechaIngresoSocio = DateTime.Today;
@@ -67,6 +68,7 @@ namespace TrabajoFinalCines
             this.localidad = localidad;
             this.provincia = provincia;
             this.condicionFiscal = condicionFiscal;
+            this.razonSocial = razonSocial;
             this.beneficio = beneficio;
             this.socio = socio;
             this.fechaIngresoSocio = fechaIngresoSocio;
@@ -142,6 +144,11 @@ namespace TrabajoFinalCines
         {
             set { condicionFiscal = value; }
             get { return condicionFiscal; }
+        }
+        public int RazonSocial
+        {
+            set { razonSocial = value; }
+            get { return razonSocial; }
         }
         public int Beneficio
         {

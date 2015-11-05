@@ -13,13 +13,21 @@ namespace TrabajoFinalCines
     public partial class frmLogin : Form
     {
         DatosSQL con;
+        Validaciones val;
         string database = "Data Source=.;Initial Catalog=CINES;Integrated Security=True";
         string user, pass;
         string result; // esta variable la vamos a utilizar en la clase program para evaluar si iniciamos la app principal o no.
-        public string pRes // esta propiedad nos va a servir para lo antes mensionado.
+        int category; // esta variable la vamos a utilizar en la clase program para evaluar si iniciamos la app de administrador o no.
+
+        public string Result // esta propiedad nos va a servir para lo antes mensionado.
         {
             set { result = value; }
             get { return result; }
+        }
+        public int Category // esta propiedad nos va a servir para lo antes mensionado.
+        {
+            set { category = value; }
+            get { return category; }
         }
 
         public frmLogin()
@@ -30,39 +38,8 @@ namespace TrabajoFinalCines
         private void frmLogin_Load(object sender, EventArgs e)
         {
             con = new DatosSQL(database);
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            // evaluamos los txt de usuario para ver cuales se rellenaron
-            if (txtAdministrador.Text != String.Empty && txtUsuario.Text == String.Empty)
-                user = txtAdministrador.Text;
-            else if (txtAdministrador.Text == String.Empty && txtUsuario.Text != String.Empty)
-                user = txtUsuario.Text;
-            else if (txtAdministrador.Text != String.Empty && txtUsuario.Text != String.Empty)
-            {
-                user = txtUsuario.Text;
-                txtAdministrador.Clear();
-            }
-
-            // evaluamos los txt de contraseña para ver cual esta rellenado
-            if (txtContrasenia2.Text != String.Empty && txtContrasenia.Text == String.Empty)
-                pass = txtContrasenia2.Text;
-            else if (txtContrasenia2.Text == String.Empty && txtContrasenia.Text != String.Empty)
-                pass = txtContrasenia.Text;
-            else if (txtContrasenia2.Text != String.Empty && txtContrasenia.Text != String.Empty)
-            {
-                pass = txtContrasenia.Text;
-                txtContrasenia2.Clear();
-            }
-
-            if (con.validarUsuario(user, pass))
-            {
-                this.DialogResult = DialogResult.Yes; // esto nos sirve para llamar al frmAppPrincipal
-                result = "OK";
-            }
-            else
-                MessageBox.Show("Algo salio mal"); // si el login fue false mostramos el mensaje
+            val = new Validaciones();
+            btnLogUser.Enabled = false;
         }
 
         private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
@@ -72,7 +49,7 @@ namespace TrabajoFinalCines
 
         private void txtUsuario_Leave(object sender, EventArgs e)
         {
-            if(String.IsNullOrEmpty(txtUsuario.Text))
+            if (String.IsNullOrEmpty(txtUsuario.Text))
             {
                 epUsuario.Icon = Properties.Resources.error;
                 epUsuario.SetError(txtUsuario, "Este campo no puede quedar vacio");
@@ -83,42 +60,82 @@ namespace TrabajoFinalCines
             }
         }
 
-        private void txtContrasenia_Leave(object sender, EventArgs e)
+        private void txtPassUser_Leave(object sender, EventArgs e)
         {
-            if(String.IsNullOrEmpty(txtContrasenia.Text))
+            if (String.IsNullOrEmpty(txtPassUser.Text))
             {
-                epContrasenia.Icon = Properties.Resources.error;
-                epContrasenia.SetError(txtContrasenia, "Este campo no puede quedar vacio");
+                epPassUser.Icon = Properties.Resources.error;
+                epPassUser.SetError(txtPassUser, "Este campo no puede quedar vacio");
             }
             else
             {
-                epContrasenia.Icon = Properties.Resources.success;
+                epPassUser.Icon = Properties.Resources.success;
             }
         }
 
-        private void txtAdministrador_Leave(object sender, EventArgs e)
+        private void txtPassUser_TextChanged(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(txtAdministrador.Text))
-            {
-                epAdministrador.Icon = Properties.Resources.error;
-                epAdministrador.SetError(txtAdministrador, "Este campo no puede quedar vacio");
-            }
+            if (!String.IsNullOrEmpty(txtPassUser.Text))
+                btnLogUser.Enabled = true;
             else
+                btnLogUser.Enabled = false;
+        }
+
+        private void txtUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            val.alfaNumerico(e);
+        }
+
+        private void txtPassUser_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == Convert.ToChar(Keys.Enter))
             {
-                epAdministrador.Icon = Properties.Resources.success;
+                // evaluamos los txt de usuario para ver que esten rellenos
+                if (txtUsuario.Text != String.Empty)
+                    user = txtUsuario.Text;
+                // evaluamos los txt de contraseña para ver cual esta rellenado
+                if (txtPassUser.Text != String.Empty)
+                    pass = txtPassUser.Text;
+
+                bool login; // variable a utilizar en el metodo de validación
+                int tipo; // variable a utilizar en el metodo de validación
+                con.validarUsuario(user, pass, out login, out tipo); // validamos el usuario que intenta loguearse
+
+                if (login)
+                {
+                    this.DialogResult = DialogResult.Yes; // esto nos sirve para llamar al frmAppPrincipal
+                    result = "OK";
+                    category = tipo;
+                }
+                else
+                {
+                    MessageBox.Show("Algo salio mal"); // si el login fue false mostramos el mensaje
+                }
             }
         }
 
-        private void txtContrasenia2_Leave(object sender, EventArgs e)
+        private void btnLogUser_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(txtContrasenia2.Text))
+            // evaluamos los txt de usuario para ver que esten rellenos
+            if (txtUsuario.Text != String.Empty)
+                user = txtUsuario.Text;
+            // evaluamos los txt de contraseña para ver cual esta rellenado
+            if (txtPassUser.Text != String.Empty)
+                pass = txtPassUser.Text;
+
+            bool login; // variable a utilizar en el metodo de validación
+            int tipo; // variable a utilizar en el metodo de validación
+            con.validarUsuario(user, pass, out login, out tipo); // validamos el usuario que intenta loguearse
+
+            if (login)
             {
-                epContrasenia2.Icon = Properties.Resources.error;
-                epContrasenia2.SetError(txtContrasenia2, "Este campo no puede quedar vacio");
+                this.DialogResult = DialogResult.Yes; // esto nos sirve para llamar al frmAppPrincipal
+                result = "OK";
+                category = tipo;
             }
             else
             {
-                epContrasenia2.Icon = Properties.Resources.success;
+                MessageBox.Show("Algo salio mal"); // si el login fue false mostramos el mensaje
             }
         }
     }

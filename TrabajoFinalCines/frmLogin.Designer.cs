@@ -30,49 +30,34 @@
         {
             this.components = new System.ComponentModel.Container();
             this.epUsuario = new System.Windows.Forms.ErrorProvider(this.components);
-            this.epContrasenia = new System.Windows.Forms.ErrorProvider(this.components);
+            this.epPassUser = new System.Windows.Forms.ErrorProvider(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lblTituloCine = new System.Windows.Forms.Label();
             this.tabControlPrincipal = new System.Windows.Forms.TabControl();
             this.tabPageUsuario = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.txtContrasenia = new System.Windows.Forms.TextBox();
+            this.btnLogUser = new System.Windows.Forms.Button();
+            this.txtPassUser = new System.Windows.Forms.TextBox();
             this.lblContrasenia = new System.Windows.Forms.Label();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.lblUsuario = new System.Windows.Forms.Label();
-            this.tabPageAdmin = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.btnLogin = new System.Windows.Forms.Button();
-            this.txtContrasenia2 = new System.Windows.Forms.TextBox();
-            this.lblContrasenia2 = new System.Windows.Forms.Label();
-            this.txtAdministrador = new System.Windows.Forms.TextBox();
-            this.lblAdministrador = new System.Windows.Forms.Label();
-            this.epAdministrador = new System.Windows.Forms.ErrorProvider(this.components);
-            this.epContrasenia2 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.epUsuario)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.epContrasenia)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epPassUser)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabControlPrincipal.SuspendLayout();
             this.tabPageUsuario.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.tabPageAdmin.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.epAdministrador)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.epContrasenia2)).BeginInit();
             this.SuspendLayout();
             // 
             // epUsuario
             // 
             this.epUsuario.ContainerControl = this;
             // 
-            // epContrasenia
+            // epPassUser
             // 
-            this.epContrasenia.ContainerControl = this;
+            this.epPassUser.ContainerControl = this;
             // 
             // tableLayoutPanel1
             // 
@@ -112,7 +97,6 @@
             // tabControlPrincipal
             // 
             this.tabControlPrincipal.Controls.Add(this.tabPageUsuario);
-            this.tabControlPrincipal.Controls.Add(this.tabPageAdmin);
             this.tabControlPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlPrincipal.Location = new System.Drawing.Point(151, 100);
             this.tabControlPrincipal.Name = "tabControlPrincipal";
@@ -129,7 +113,7 @@
             this.tabPageUsuario.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageUsuario.Size = new System.Drawing.Size(431, 260);
             this.tabPageUsuario.TabIndex = 0;
-            this.tabPageUsuario.Text = "Usuario";
+            this.tabPageUsuario.Text = "Login";
             // 
             // tableLayoutPanel2
             // 
@@ -152,8 +136,8 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.txtContrasenia);
+            this.panel1.Controls.Add(this.btnLogUser);
+            this.panel1.Controls.Add(this.txtPassUser);
             this.panel1.Controls.Add(this.lblContrasenia);
             this.panel1.Controls.Add(this.txtUsuario);
             this.panel1.Controls.Add(this.lblUsuario);
@@ -163,32 +147,34 @@
             this.panel1.Size = new System.Drawing.Size(334, 197);
             this.panel1.TabIndex = 0;
             // 
-            // button1
+            // btnLogUser
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.Location = new System.Drawing.Point(105, 156);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(129, 31);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Loguearse";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnLogUser.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnLogUser.Location = new System.Drawing.Point(105, 147);
+            this.btnLogUser.Name = "btnLogUser";
+            this.btnLogUser.Size = new System.Drawing.Size(129, 31);
+            this.btnLogUser.TabIndex = 2;
+            this.btnLogUser.Text = "Loguearse";
+            this.btnLogUser.UseVisualStyleBackColor = true;
+            this.btnLogUser.Click += new System.EventHandler(this.btnLogUser_Click);
             // 
-            // txtContrasenia
+            // txtPassUser
             // 
-            this.txtContrasenia.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContrasenia.Location = new System.Drawing.Point(105, 119);
-            this.txtContrasenia.Name = "txtContrasenia";
-            this.txtContrasenia.PasswordChar = '*';
-            this.txtContrasenia.Size = new System.Drawing.Size(129, 26);
-            this.txtContrasenia.TabIndex = 1;
-            this.txtContrasenia.Leave += new System.EventHandler(this.txtContrasenia_Leave);
+            this.txtPassUser.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassUser.Location = new System.Drawing.Point(105, 110);
+            this.txtPassUser.Name = "txtPassUser";
+            this.txtPassUser.PasswordChar = '*';
+            this.txtPassUser.Size = new System.Drawing.Size(129, 26);
+            this.txtPassUser.TabIndex = 1;
+            this.txtPassUser.TextChanged += new System.EventHandler(this.txtPassUser_TextChanged);
+            this.txtPassUser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPassUser_KeyPress);
+            this.txtPassUser.Leave += new System.EventHandler(this.txtPassUser_Leave);
             // 
             // lblContrasenia
             // 
             this.lblContrasenia.AutoSize = true;
             this.lblContrasenia.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContrasenia.Location = new System.Drawing.Point(97, 91);
+            this.lblContrasenia.Location = new System.Drawing.Point(97, 82);
             this.lblContrasenia.Name = "lblContrasenia";
             this.lblContrasenia.Size = new System.Drawing.Size(145, 26);
             this.lblContrasenia.TabIndex = 3;
@@ -197,121 +183,22 @@
             // txtUsuario
             // 
             this.txtUsuario.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuario.Location = new System.Drawing.Point(105, 59);
+            this.txtUsuario.Location = new System.Drawing.Point(105, 50);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(129, 26);
             this.txtUsuario.TabIndex = 0;
+            this.txtUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUsuario_KeyPress);
             this.txtUsuario.Leave += new System.EventHandler(this.txtUsuario_Leave);
             // 
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.Location = new System.Drawing.Point(118, 30);
+            this.lblUsuario.Location = new System.Drawing.Point(118, 21);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(102, 26);
             this.lblUsuario.TabIndex = 1;
             this.lblUsuario.Text = "Usuario";
-            // 
-            // tabPageAdmin
-            // 
-            this.tabPageAdmin.Controls.Add(this.tableLayoutPanel3);
-            this.tabPageAdmin.Location = new System.Drawing.Point(4, 22);
-            this.tabPageAdmin.Name = "tabPageAdmin";
-            this.tabPageAdmin.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageAdmin.Size = new System.Drawing.Size(431, 260);
-            this.tabPageAdmin.TabIndex = 1;
-            this.tabPageAdmin.Text = "Administrador";
-            this.tabPageAdmin.UseVisualStyleBackColor = true;
-            // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tableLayoutPanel3.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.tableLayoutPanel3.ColumnCount = 3;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel3.Controls.Add(this.panel2, 1, 1);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 3;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(425, 254);
-            this.tableLayoutPanel3.TabIndex = 1;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.btnLogin);
-            this.panel2.Controls.Add(this.txtContrasenia2);
-            this.panel2.Controls.Add(this.lblContrasenia2);
-            this.panel2.Controls.Add(this.txtAdministrador);
-            this.panel2.Controls.Add(this.lblAdministrador);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(45, 28);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(334, 197);
-            this.panel2.TabIndex = 0;
-            // 
-            // btnLogin
-            // 
-            this.btnLogin.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnLogin.Location = new System.Drawing.Point(105, 156);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(129, 31);
-            this.btnLogin.TabIndex = 6;
-            this.btnLogin.Text = "Loguearse";
-            this.btnLogin.UseVisualStyleBackColor = true;
-            // 
-            // txtContrasenia2
-            // 
-            this.txtContrasenia2.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContrasenia2.Location = new System.Drawing.Point(105, 119);
-            this.txtContrasenia2.Name = "txtContrasenia2";
-            this.txtContrasenia2.PasswordChar = '*';
-            this.txtContrasenia2.Size = new System.Drawing.Size(129, 26);
-            this.txtContrasenia2.TabIndex = 3;
-            this.txtContrasenia2.Leave += new System.EventHandler(this.txtContrasenia2_Leave);
-            // 
-            // lblContrasenia2
-            // 
-            this.lblContrasenia2.AutoSize = true;
-            this.lblContrasenia2.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContrasenia2.Location = new System.Drawing.Point(97, 91);
-            this.lblContrasenia2.Name = "lblContrasenia2";
-            this.lblContrasenia2.Size = new System.Drawing.Size(145, 26);
-            this.lblContrasenia2.TabIndex = 2;
-            this.lblContrasenia2.Text = "Contraseña";
-            // 
-            // txtAdministrador
-            // 
-            this.txtAdministrador.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAdministrador.Location = new System.Drawing.Point(105, 59);
-            this.txtAdministrador.Name = "txtAdministrador";
-            this.txtAdministrador.Size = new System.Drawing.Size(129, 26);
-            this.txtAdministrador.TabIndex = 1;
-            this.txtAdministrador.Leave += new System.EventHandler(this.txtAdministrador_Leave);
-            // 
-            // lblAdministrador
-            // 
-            this.lblAdministrador.AutoSize = true;
-            this.lblAdministrador.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAdministrador.Location = new System.Drawing.Point(74, 30);
-            this.lblAdministrador.Name = "lblAdministrador";
-            this.lblAdministrador.Size = new System.Drawing.Size(190, 26);
-            this.lblAdministrador.TabIndex = 0;
-            this.lblAdministrador.Text = "Administrador";
-            // 
-            // epAdministrador
-            // 
-            this.epAdministrador.ContainerControl = this;
-            // 
-            // epContrasenia2
-            // 
-            this.epContrasenia2.ContainerControl = this;
             // 
             // frmLogin
             // 
@@ -329,7 +216,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmLogin_FormClosing);
             this.Load += new System.EventHandler(this.frmLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.epUsuario)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.epContrasenia)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epPassUser)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tabControlPrincipal.ResumeLayout(false);
@@ -337,12 +224,6 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.tabPageAdmin.ResumeLayout(false);
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.epAdministrador)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.epContrasenia2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -351,27 +232,17 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label lblTituloCine;
+        private System.Windows.Forms.ErrorProvider epUsuario;
+        private System.Windows.Forms.ErrorProvider epPassUser;
         private System.Windows.Forms.TabControl tabControlPrincipal;
         private System.Windows.Forms.TabPage tabPageUsuario;
-        private System.Windows.Forms.TabPage tabPageAdmin;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox txtContrasenia;
+        private System.Windows.Forms.Button btnLogUser;
+        private System.Windows.Forms.TextBox txtPassUser;
         private System.Windows.Forms.Label lblContrasenia;
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.Label lblUsuario;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox txtContrasenia2;
-        private System.Windows.Forms.Label lblContrasenia2;
-        private System.Windows.Forms.TextBox txtAdministrador;
-        private System.Windows.Forms.Label lblAdministrador;
-        private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ErrorProvider epUsuario;
-        private System.Windows.Forms.ErrorProvider epContrasenia;
-        private System.Windows.Forms.ErrorProvider epAdministrador;
-        private System.Windows.Forms.ErrorProvider epContrasenia2;
     }
 }
 

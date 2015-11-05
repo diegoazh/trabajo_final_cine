@@ -7,3 +7,4 @@ C:\Users\AdminFull\Documents\Visual Studio 2013\Projects\C#\Semestre2\trabajo_fi
 C:\Users\AdminFull\Documents\Visual Studio 2013\Projects\C#\Semestre2\trabajo_final_Cines\TrabajoFinalCines\TrabajoFinalCines\obj\Debug\TrabajoFinalCines.exe
 C:\Users\AdminFull\Documents\Visual Studio 2013\Projects\C#\Semestre2\trabajo_final_Cines\TrabajoFinalCines\TrabajoFinalCines\obj\Debug\TrabajoFinalCines.pdb
 C:\Users\AdminFull\Documents\Visual Studio 2013\Projects\C#\Semestre2\trabajo_final_Cines\TrabajoFinalCines\TrabajoFinalCines\obj\Debug\TrabajoFinalCines.frmLogin.resources
+C:\Users\AdminFull\Documents\Visual Studio 2013\Projects\C#\Semestre2\trabajo_final_Cines\TrabajoFinalCines\TrabajoFinalCines\obj\Debug\TrabajoFinalCines.frmAppPrincipal.resources

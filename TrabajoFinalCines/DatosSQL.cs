@@ -115,17 +115,20 @@ namespace TrabajoFinalCines
             desconectar();
         }
 
-        public bool validarUsuario(string user, string pass)
+        public void validarUsuario(string user, string pass, out bool result, out int tipo)
         {
-            // para más información visite esta referencia https://msdn.microsoft.com/es-ar/library/cc438155(v=vs.71).aspx
-            bool result; // creamos la variable que devolvera el metodo
+            // Para más información visite estas referencias:
+            // https://msdn.microsoft.com/es-ar/library/cc438155(v=vs.71).aspx
+            // https://msdn.microsoft.com/es-AR/library/ee332485.aspx
+            // https://msdn.microsoft.com/es-AR/library/14akc2c7.aspx
 
             comando.CommandText = "validarUsuario"; // indicamos cual es el procedimiento de sqlserver que se utilizará
             comando.CommandType = System.Data.CommandType.StoredProcedure; // indicamos que el tipo de comando es un procedimiento
 
             if (comando.Parameters.Contains("@Name")
                 || comando.Parameters.Contains("@Pass")
-                || comando.Parameters.Contains("@Result")) // Preguntamos si los parametros ya existen, si no hacemos esto despues del primer intento en caso de ser fallido, no podriamos ejecutar un segundo intento porque daria  un error, pues estaríamos creando nuevamente los parametros que ya existen
+                || comando.Parameters.Contains("@Result")
+                || comando.Parameters.Contains("@Tipo")) // Preguntamos si los parametros ya existen, si no hacemos esto despues del primer intento en caso de ser fallido, no podriamos ejecutar un segundo intento porque daria  un error, pues estaríamos creando nuevamente los parametros que ya existen
             {
                 comando.Parameters["@Name"].Value = user;
                 comando.Parameters["@Pass"].Value = pass;
@@ -135,6 +138,7 @@ namespace TrabajoFinalCines
                 comando.Parameters.Add("@Name", SqlDbType.NVarChar, 30).Value = user; // declaramos los parametros que recibe el procedimiento.
                 comando.Parameters.Add("@Pass", SqlDbType.NVarChar, 30).Value = pass; // declaramos los parametros que recibe el procedimiento.
                 comando.Parameters.Add("@Result", SqlDbType.Bit).Direction = ParameterDirection.Output; // declaramos el parametro que devuelve el procedimiento y su dirección, osea "output"
+                comando.Parameters.Add("@Tipo", SqlDbType.Int).Direction = ParameterDirection.Output; // declaramos el parametro que devuelve el procedimiento y su dirección, osea "output"
             }
 
             conexion.ConnectionString = cadenaConexion; // creamos una nueva conexión, tener cuidado el metodo conectar no sirve porque nos cambia el comandType a text
@@ -144,7 +148,7 @@ namespace TrabajoFinalCines
             desconectar(); // desconectamos
 
             result = (bool)(comando.Parameters["@Result"].Value); // asignamos a la variable result el parametro que nos devuelve el procedimiento, que es un bit en sql, lo cual nos indica que en c# es de tipo bool (ver https://msdn.microsoft.com/es-es/library/yy6y35y8(v=vs.110).aspx)
-            return result; // retornamos el valor
+            tipo = (int)(comando.Parameters["@Tipo"].Value);
         }
     }
 }

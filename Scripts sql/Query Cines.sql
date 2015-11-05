@@ -290,33 +290,38 @@ references Butacas(id_butaca)
  ******************************************************/
 
 -- Este procedimiento registra un usuario
-create procedure registrarUsuario
+alter procedure registrarUsuario
 	@Name nvarchar(30),
-	@Pass nvarchar(300)
+	@Pass nvarchar(300),
+	@Tipo int
 as
 begin
     insert into users
     (
         nickname,
-        contrasenia
+        contrasenia,
+		id_tipo
     )
     values
     (
         @Name,
-        ENCRYPTBYPASSPHRASE('CinesDzPs', @Pass)
+        ENCRYPTBYPASSPHRASE('CinesDzPs', @Pass),
+		@Tipo
     )
 end
 go
 
 -- Este procedimiento valida un usuario
-create procedure validarUsuario
+alter procedure validarUsuario
 	@Name nvarchar(30),
 	@Pass nvarchar(300),
-    @Result bit output
+    @Result bit output,
+	@Tipo int output
 as
     declare @PassCodificado as nvarchar(300)
     declare @PassDecodificado as nvarchar(50)
 begin
+	select @Tipo = id_tipo from users where nickname = @Name
     select @PassCodificado = contrasenia from users where nickname = @Name
     set @PassDecodificado = convert(varchar(300),DECRYPTBYPASSPHRASE('CinesDzPs', @PassCodificado))
 

@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace TrabajoFinalCines
 {
-    public partial class frmAppPrincipal : Form
+    public partial class frmAdministrador : Form
     {
-        public frmAppPrincipal()
+        public frmAdministrador()
         {
             InitializeComponent();
-        }
-
-        private void frmAppPrincipal_Load(object sender, EventArgs e)
-        {
-            
         }
     }
 }
