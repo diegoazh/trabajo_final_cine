@@ -166,6 +166,7 @@ create table Peliculas(
 id_pelicula int identity(1,1),
 nombre varchar(50) not null,
 descripcion varchar(250) null,
+estreno bit,
 duracion time(0),
 id_genero int,
 id_calificacion int,
@@ -213,6 +214,14 @@ constraint FKIdEstado foreign key (id_estado)
 references EstadoButacas (id_estado)
 )
 go
+create table Entradas(
+id_entrada int identity(1,1),
+nombre varchar(35) not null,
+descripcion varchar(150),
+precio money not null,
+constraint PkIdEntrada primary key(id_entrada)
+)
+go
 create table Funciones(
 id_funcion int identity(1,1),
 id_sala int,
@@ -230,9 +239,12 @@ create table Detalles_Facturas(
 id_detalle int identity(1,1) not null,
 precio money not null,
 descuento int not null,
+id_funcion int,
 id_butaca int,
 id_factura bigint,
 constraint PkDetalle primary key (id_detalle),
+constraint FkIdFuncion foreign key(id_funcion)
+references Funciones(id_funcion),
 constraint FkButacadf foreign key (id_butaca)
 references Butacas (id_butaca),
 constraint FkFacturadf foreign key (id_factura)
@@ -290,7 +302,7 @@ references Butacas(id_butaca)
  ******************************************************/
 
 -- Este procedimiento registra un usuario
-alter procedure registrarUsuario
+create procedure registrarUsuario
 	@Name nvarchar(30),
 	@Pass nvarchar(300),
 	@Tipo int
@@ -312,7 +324,7 @@ end
 go
 
 -- Este procedimiento valida un usuario
-alter procedure validarUsuario
+create procedure validarUsuario
 	@Name nvarchar(30),
 	@Pass nvarchar(300),
     @Result bit output,
