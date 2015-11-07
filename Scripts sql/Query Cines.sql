@@ -25,13 +25,22 @@ nombre varchar (100) not null
 constraint PkProvicia primary key (id_provincia)
 )
 go
+create table Departamentos(
+id_departamento int identity(1,1) not null,
+id_provincia int,
+nombre varchar(60),
+constraint PkIdDepartamento primary key(id_departamento),
+constraint FkIdProvincia foreign key(id_provincia)
+references provincias(id_provincia)
+)
+go
 create table Localidades(
 id_localidad int identity(1,1) not null,
+id_departamento int,
 nombre varchar (100) not null,
-id_provincia int,
 constraint PkLocalidad primary key (id_localidad),
-constraint FkProvincia foreign key (id_provincia)
-references Provincias (id_provincia)
+constraint FkIdDepartamento foreign key (id_departamento)
+references Departamentos (id_departamento)
 )
 go
 create table Barrios (
@@ -55,6 +64,9 @@ tipo varchar (50) not null,
 descripcion varchar(300),
 fecha_inicio datetime,
 fecha_finalizacion datetime,
+created_at datetime,
+updated_at datetime,
+deleted_at datetime,
 constraint PkIdBeneficio primary key (id_beneficio)
 )
 go
@@ -75,6 +87,9 @@ id_cond_fiscal int,
 razon_social varchar(150) null,
 id_beneficio int,
 socio bit,
+created_at datetime,
+updated_at datetime,
+deleted_at datetime,
 constraint PkCliente primary key (id_cliente),
 constraint FkIdCondFiscal foreign key(id_cond_fiscal)
 references Condiciones_Fiscales(id_cond_fiscal),
@@ -90,6 +105,9 @@ nombre varchar(50),
 descuento int not null,
 descripcion varchar(150),
 acumulable bit not null,
+created_at datetime,
+updated_at datetime,
+deleted_at datetime,
 constraint PkIdTipo primary key(id_tipo)
 )
 go
@@ -100,8 +118,10 @@ caracteristicas varchar(300),
 cupo int not null,
 fecha_inicio datetime,
 fecha_fin datetime,
-fecha_creacion datetime,
 tipo_promocion int,
+created_at datetime,
+updated_at datetime,
+deleted_at datetime,
 constraint PkIdPromo primary key(id_promocion),
 constraint FkTipoPromo foreign key(tipo_promocion)
 references Tipo_Promociones(id_tipo)
@@ -110,6 +130,9 @@ go
 create table Formas_de_Pagos(
 id_form_pago int identity(1,1) not null,
 forma_pago varchar (70) not null,
+created_at datetime,
+updated_at datetime,
+deleted_at datetime,
 constraint PkFormPago primary key (id_form_pago)
 )
 go
@@ -121,6 +144,9 @@ cuit bigint not null,
 direccion varchar not null,
 id_cond_fiscal int,
 id_barrio int,
+created_at datetime,
+updated_at datetime,
+deleted_at datetime,
 constraint PkCine primary key (id_cine),
 constraint FkCondFiscalc foreign key (id_cond_fiscal)
 references Condiciones_fiscales (id_cond_fiscal),
@@ -136,12 +162,13 @@ id_cine int not null,
 id_cliente int null,
 id_form_pago int not null,
 id_promocion int,
+created_at datetime,
+updated_at datetime,
+deleted_at datetime,
 constraint PkIdFactura primary key (id_factura),
 constraint U_NroFactura unique(nro_factura),
 constraint FkCinefa foreign key (id_cine)
 references Cines (id_cine),
-constraint FkClienteFa foreign key (id_cliente)
-references Clientes(id_cliente),
 constraint FkFormPagofa foreign key (id_form_pago)
 references Formas_de_pagos (id_form_pago),
 constraint FkFacPromo foreign key(id_promocion)
@@ -152,13 +179,19 @@ references Clientes(id_cliente)
 go
 create table Calificacion (
 id_calificacion int identity(1,1) not null,
-descripcion int not null,
+descripcion varchar(10) not null,
+created_at datetime,
+updated_at datetime,
+deleted_at datetime,
 constraint PkEdad primary key (id_calificacion)
 )
 go
 create table Generos (
 id_genero int identity(1,1) not null,
 genero varchar (50) not null,
+created_at datetime,
+updated_at datetime,
+deleted_at datetime,
 constraint PkGenero primary key (id_genero)
 )
 go
@@ -170,6 +203,9 @@ estreno bit,
 duracion time(0),
 id_genero int,
 id_calificacion int,
+created_at datetime,
+updated_at datetime,
+deleted_at datetime,
 constraint PKIdPelicula primary key(id_pelicula),
 constraint FkIdGenero foreign key(id_genero)
 references Generos(id_genero),
@@ -180,6 +216,9 @@ go
 create table Tipos_Salas(
 id_tipo_sala int identity (1,1) not null,
 tipo_sala varchar (50) not null,
+created_at datetime,
+updated_at datetime,
+deleted_at datetime,
 constraint PkTipoSala primary key (id_tipo_sala)
 )
 go
@@ -189,6 +228,9 @@ nombre_sala varchar(25) not null,
 cant_butacas int,
 id_tipo_sala int,
 id_cine int,
+created_at datetime,
+updated_at datetime,
+deleted_at datetime,
 constraint PkSala primary key (id_sala),
 constraint FkTipoSalasa foreign key (id_tipo_sala)
 references Tipos_Salas (id_tipo_sala),
@@ -207,6 +249,9 @@ id_butaca int identity(1,1),
 butaca int not null,
 id_sala int,
 id_estado int,
+created_at datetime,
+updated_at datetime,
+deleted_at datetime,
 constraint PkButaca primary key (id_butaca),
 constraint FkIdNroSala foreign key(id_sala)
 references Salas(id_sala),
@@ -219,6 +264,9 @@ id_entrada int identity(1,1),
 nombre varchar(35) not null,
 descripcion varchar(150),
 precio money not null,
+created_at datetime,
+updated_at datetime,
+deleted_at datetime,
 constraint PkIdEntrada primary key(id_entrada)
 )
 go
@@ -228,6 +276,9 @@ id_sala int,
 id_pelicula int,
 hs_inicio time(0),
 hs_finalizacion time(0),
+created_at datetime,
+updated_at datetime,
+deleted_at datetime,
 constraint PkIdSyP primary key(id_funcion),
 constraint FkIdSala foreign key(id_sala)
 references Salas(id_sala),
@@ -237,12 +288,17 @@ references Peliculas(id_pelicula)
 go
 create table Detalles_Facturas(
 id_detalle int identity(1,1) not null,
-precio money not null,
+id_entrada int,
 descuento int not null,
 id_funcion int,
 id_butaca int,
 id_factura bigint,
+created_at datetime,
+updated_at datetime,
+deleted_at datetime,
 constraint PkDetalle primary key (id_detalle),
+constraint FkIdEntrada foreign key(id_entrada)
+references Entradas(id_entrada),
 constraint FkIdFuncion foreign key(id_funcion)
 references Funciones(id_funcion),
 constraint FkButacadf foreign key (id_butaca)
@@ -255,6 +311,9 @@ create table Reservas(
 id_reserva bigint identity(1,1),
 id_cliente int,
 fechaYHora datetime not null,
+created_at datetime,
+updated_at datetime,
+deleted_at datetime,
 constraint PkIdReserva primary key(id_reserva),
 constraint FkIdClienteReserva foreign key(id_cliente)
 references Clientes(id_cliente)
@@ -264,6 +323,9 @@ create table Detalles_Reservas(
 id_detalle int identity(1,1),
 id_reserva bigint,
 id_butaca int,
+created_at datetime,
+updated_at datetime,
+deleted_at datetime,
 constraint PkIdDetalleReserva primary key(id_detalle),
 constraint FkIdReserva foreign key(id_reserva)
 references Reservas(id_reserva),
@@ -276,21 +338,28 @@ references Butacas(id_butaca)
  * Tabla Usuarios para el logueo
  *
  ******************************************************/
- create table user_categories(
-	id int identity(1,1),
-	categoria varchar(25) not null,
-	constraint PkIdUserCategory primary key(id)
- )
- create table users(
-	id int identity(1,1),
-	nickname varchar(30),
-	contrasenia varbinary(4000) not null,
-	id_tipo int,
-	constraint PkIdUser primary key(id),
-	constraint FkIdTipo foreign key(id_tipo)
-	references user_categories(id)
- )
- go
+create table user_categories(
+id int identity(1,1),
+categoria varchar(25) not null,
+created_at datetime,
+updated_at datetime,
+deleted_at datetime,
+constraint PkIdUserCategory primary key(id)
+)
+go
+create table users(
+id int identity(1,1),
+nickname varchar(30),
+contrasenia varbinary(4000) not null,
+id_tipo int,
+created_at datetime,
+updated_at datetime,
+deleted_at datetime,
+constraint PkIdUser primary key(id),
+constraint FkIdTipo foreign key(id_tipo)
+references user_categories(id)
+)
+go
 
  /******************************************************
  *

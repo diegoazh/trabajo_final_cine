@@ -135,7 +135,7 @@ namespace TrabajoFinalCines
             }
             else
             {
-                MessageBox.Show("Algo salio mal"); // si el login fue false mostramos el mensaje
+                MessageBox.Show("Usuario o Contraseñas invalidas.\n Por favor verifiquelo. \n ¡Gracias!"); // si el login fue false mostramos el mensaje
             }
         }
     }

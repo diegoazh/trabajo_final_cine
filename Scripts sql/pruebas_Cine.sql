@@ -37,3 +37,50 @@ begin
     else
         set @Result = 0
 end
+
+-- Alters para corregir tablas
+DELETE FROM [Condiciones_Fiscales];
+GO
+DBCC CHECKIDENT('Condiciones_Fiscales', RESEED, 0);
+GO
+DELETE FROM [Barrios];
+GO
+DBCC CHECKIDENT('Barrios', RESEED, 0);
+GO
+DELETE FROM [Beneficios];
+GO
+DBCC CHECKIDENT('Beneficios', RESEED, 0);
+GO
+DELETE FROM [Clientes];
+GO
+DBCC CHECKIDENT('Clientes', RESEED, 0);
+GO
+DELETE FROM [Formas_de_Pagos];
+GO
+DBCC CHECKIDENT('Formas_de_Pagos', RESEED, 0);
+GO
+DELETE FROM [Cines];
+GO
+DBCC CHECKIDENT('Cines', RESEED, 0);
+GO
+DELETE FROM [Calificacion];
+GO
+DBCC CHECKIDENT('Calificacion', RESEED, 0);
+GO
+DELETE FROM [Generos];
+GO
+DBCC CHECKIDENT('Generos', RESEED, 0);
+GO
+DELETE FROM [Tipos_Salas];
+GO
+DBCC CHECKIDENT('Tipos_Salas', RESEED, 0);
+GO
+DELETE FROM [Salas];
+GO
+DBCC CHECKIDENT('Salas', RESEED, 0);
+GO
+DELETE FROM [EstadoButacas];
+GO
+DBCC CHECKIDENT('EstadoButacas', RESEED, 0);
+GO
+-- OTRAS PRUEBAS
