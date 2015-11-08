@@ -128,8 +128,6 @@ namespace TrabajoFinalCines
 
         private void btnAdminConsultar_Click(object sender, EventArgs e)
         {
-            con.TablaDatos = null;
-            con.TablaDatos = new DataTable();
             consultasALaDB(cboTablas,chkLbCampos,dtgvContenidoTablas);
             removerColumnas(columnas, chkLbCampos, dtgvContenidoTablas, con.TablaDatos);
             dtgvContenidoTablas.Refresh();

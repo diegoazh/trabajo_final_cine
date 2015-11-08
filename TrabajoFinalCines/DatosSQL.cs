@@ -85,9 +85,20 @@ namespace TrabajoFinalCines
         {
             conectar();
             comando.CommandText = "select * from " + nombreTabla;
-            tablaDatos = null;
-            tablaDatos = new DataTable();
-            tablaDatos.Load(comando.ExecuteReader());
+            try
+            {
+                /******************************************************************************************************************************************
+                 * Esto lo hacemos porque si ejecutaramos el load solamente, lo que recupere la consulta se almacena con lo que ya contenga el dataTable.
+                 * Y la idea es que el data table contenga solamente la información de la tabla que se consulta en ese momento
+                 ******************************************************************************************************************************************/
+                tablaDatos = null;
+                tablaDatos = new DataTable();
+                tablaDatos.Load(comando.ExecuteReader());
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Se encontraron errores o la tabla estaba vacia: \n" + ex.ToString());
+            }
             desconectar();
             return tablaDatos;
         }
@@ -97,6 +108,10 @@ namespace TrabajoFinalCines
             comando.CommandText = query;
             try
             {
+                /******************************************************************************************************************************************
+                 * Esto lo hacemos porque si ejecutaramos el load solamente, lo que recupere la consulta se almacena con lo que ya contenga el dataTable.
+                 * Y la idea es que el data table contenga solamente la información de la tabla que se consulta en ese momento
+                 ******************************************************************************************************************************************/
                 tablaDatos = null;
                 tablaDatos = new DataTable();
                 tablaDatos.Load(comando.ExecuteReader());
