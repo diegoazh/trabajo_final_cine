@@ -6082,6 +6082,8 @@ insert into [Barrios] (nombre,id_localidad) values('Paso de los Andes',1560);
 insert into [Barrios] (nombre,id_localidad) values('Pueryrredon',1560);
 go
 insert into [Beneficios] (tipo,descripcion,fecha_inicio,fecha_finalizacion,created_at,updated_at,deleted_at)
+values('0%','Sin beneficio',NULL,NULL,'2015-01-01',NULL,NULL);
+insert into [Beneficios] (tipo,descripcion,fecha_inicio,fecha_finalizacion,created_at,updated_at,deleted_at)
 values('5%','Descuento del 5% para socios con menos de 3 meses','2015-01-01',NULL,'2015-01-01',NULL,NULL);
 insert into [Beneficios] (tipo,descripcion,fecha_inicio,fecha_finalizacion,created_at,updated_at,deleted_at)
 values('10%','Descuento del 10% para socios con más de 3 meses y hasta 12 meses','2015-01-01',NULL,'2015-01-01',NULL,NULL);

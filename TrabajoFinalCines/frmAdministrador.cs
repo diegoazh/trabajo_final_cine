@@ -59,7 +59,7 @@ namespace TrabajoFinalCines
             campos = campos.TrimEnd(',');
 
             query = "select " + campos + " from " + comboBox.SelectedItem;
-            MessageBox.Show(query);
+            //MessageBox.Show(query);
 
             con.selectQuery(query);
 

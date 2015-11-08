@@ -161,7 +161,6 @@ fecha datetime not null,
 id_cine int not null,
 id_cliente int null,
 id_form_pago int not null,
-id_promocion int,
 created_at datetime,
 updated_at datetime,
 deleted_at datetime,
@@ -171,8 +170,6 @@ constraint FkCinefa foreign key (id_cine)
 references Cines (id_cine),
 constraint FkFormPagofa foreign key (id_form_pago)
 references Formas_de_pagos (id_form_pago),
-constraint FkFacPromo foreign key(id_promocion)
-references Promociones(id_promocion),
 constraint FkFactIdCliente foreign key(id_cliente)
 references Clientes(id_cliente)
 )
@@ -289,7 +286,8 @@ go
 create table Detalles_Facturas(
 id_detalle int identity(1,1) not null,
 id_entrada int,
-descuento int not null,
+id_promocion int null,
+id_beneficio int null,
 id_funcion int,
 id_butaca int,
 id_factura bigint,
@@ -299,6 +297,10 @@ deleted_at datetime,
 constraint PkDetalle primary key (id_detalle),
 constraint FkIdEntrada foreign key(id_entrada)
 references Entradas(id_entrada),
+constraint FkIdPromo foreign key(id_promocion)
+references Promociones(id_promocion),
+constraint FkIdBeneficio foreign key(id_beneficio)
+references Beneficios(id_beneficio),
 constraint FkIdFuncion foreign key(id_funcion)
 references Funciones(id_funcion),
 constraint FkButacadf foreign key (id_butaca)
@@ -413,7 +415,65 @@ begin
 end
 go
 
-create procedure 
+ /**************************************************************************************
+ *
+ * Las consultas mejoradas debido a la nva estructura de la base de datos 
+ *
+ **************************************************************************************/
+
+-- El total recaudado por el genero en el periodo de meses pedido y hasta la fecha.
+create procedure sp_recaudacionPorGenero
+@Genero int = 1,
+@Meses int = 1,
+@Beneficio money = 0.0,
+@Promocion money = 0.0
+as
+select g.genero as 'Genero de pelicula', sum(e.precio - @Beneficio - @Promocion) as 'Totales Generales'
+from Facturas as f, Detalles_Facturas as d, Entradas as e, Funciones as fun, Peliculas as p, Generos as g
+where (f.id_factura = d.id_factura) and (d.id_entrada = e.id_entrada) 
+and (fun.id_funcion = d.id_funcion) and (fun.id_pelicula = p.id_pelicula)
+and (g.id_genero = p.id_genero)
+and (g.id_genero = @Genero) and (f.fecha between dateadd(month, -@Meses, getdate()) and getdate())
+group by g.genero;
+go
+
+-- El total recaudado la película en el periodo de meses pedido y hasta la fecha.
+create procedure sp_recaudacionPorPelicula
+@Pelicula int = 1,
+@Meses int = 1,
+@Beneficio money = 0.0,
+@Promocion money = 0.0
+as
+select p.nombre as 'Título de la Película', sum(e.precio - @Beneficio - @Promocion) as 'Totales Generales'
+from Facturas as f, Detalles_Facturas as d, Entradas as e, Funciones as fun, Peliculas as p
+where (f.id_factura = d.id_factura) and (d.id_entrada = e.id_entrada) 
+and (fun.id_funcion = d.id_funcion) and (fun.id_pelicula = p.id_pelicula)
+and (p.id_pelicula = @Pelicula) and (f.fecha between dateadd(month, -@Meses, getdate()) and getdate())
+group by p.nombre;
+go
+
+-- Clientes que vieron determinada película , que sean o no socios en el periodo de tiempo especificado.
+create procedure sp_clientesNoSociosPorPelicula
+@Pelicula int = 1,
+@Socio bit = 0,
+@FechaDesde date,
+@FechaHasta date
+as
+if @FechaDesde = NULL
+	return
+if @FechaHasta = NULL
+	return
+begin
+select p.nombre as 'Título de la Pélicula', count(*) as 'Cantidad de clientes'
+from Facturas as f, Detalles_Facturas as d, Clientes as c, Funciones as fun, Peliculas as p
+where (f.id_factura = d.id_factura) and (d.id_funcion = fun.id_funcion) and 
+(f.id_cliente = c.id_cliente) and (fun.id_pelicula = p.id_pelicula) and
+(f.fecha between @FechaDesde and @FechaHasta) and (p.id_pelicula = @Pelicula) and (c.socio = @Socio)
+group by p.nombre
+end
+
+-- Clientes qe no hayan visto las primeras 39 películas que emitió el cine, entre el 1/5 y el 30/6 de este año y que se hayan sentado en las butacas 3, 5 o 7 y que además sean socios.
+
 
  /******************************************************
  *
