@@ -39,7 +39,7 @@ namespace TrabajoFinalCines
         }
 
         // Propiedades
-        public SqlDataReader DataReader
+        public SqlDataReader LectorDatos
         {
             set { lectorDatos = value; }
             get { return lectorDatos; }
@@ -49,10 +49,15 @@ namespace TrabajoFinalCines
             set { cadenaConexion = value; }
             get { return cadenaConexion; }
         }
-        public DataTable DataTable
+        public DataTable TablaDatos
         {
             set { tablaDatos = value; }
             get { return tablaDatos; }
+        }
+        public DataSet DBCines
+        {
+            set { dbCines = value; }
+            get { return dbCines; }
         }
 
         // Metodos
