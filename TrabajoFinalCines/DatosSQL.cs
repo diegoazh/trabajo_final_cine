@@ -14,8 +14,10 @@ namespace TrabajoFinalCines
     {
         private SqlConnection conexion;
         private SqlCommand comando;
-        private SqlDataReader dataReader;
-        private DataTable dataTable;
+        private SqlDataReader lectorDatos;
+        private SqlDataAdapter adaptador;
+        private DataTable tablaDatos;
+        private DataSet dbCines;
         private string cadenaConexion;
 
         // Constructores
@@ -23,24 +25,24 @@ namespace TrabajoFinalCines
         {
             conexion = new SqlConnection();
             comando = new SqlCommand();
-            dataReader = null;
-            dataTable = new DataTable();
+            lectorDatos = null;
+            tablaDatos = new DataTable();
             cadenaConexion = null;
         }
         public DatosSQL(string cadenaConexion)
         {
             conexion = new SqlConnection();
             comando = new SqlCommand();
-            dataReader = null;
-            dataTable = new DataTable();
+            lectorDatos = null;
+            tablaDatos = new DataTable();
             this.cadenaConexion = cadenaConexion;
         }
 
         // Propiedades
         public SqlDataReader DataReader
         {
-            set { dataReader = value; }
-            get { return dataReader; }
+            set { lectorDatos = value; }
+            get { return lectorDatos; }
         }
         public string CadenaConexion
         {
@@ -49,8 +51,8 @@ namespace TrabajoFinalCines
         }
         public DataTable DataTable
         {
-            set { dataTable = value; }
-            get { return dataTable; }
+            set { tablaDatos = value; }
+            get { return tablaDatos; }
         }
 
         // Metodos
@@ -78,23 +80,23 @@ namespace TrabajoFinalCines
         {
             conectar();
             comando.CommandText = "select * from " + nombreTabla;
-            dataTable.Load(comando.ExecuteReader());
+            tablaDatos.Load(comando.ExecuteReader());
             desconectar();
-            return dataTable;
+            return tablaDatos;
         }
         public DataTable selectQuery(string query)
         {
             conectar();
             comando.CommandText = query;
-            dataTable.Load(comando.ExecuteReader());
+            tablaDatos.Load(comando.ExecuteReader());
             desconectar();
-            return dataTable;
+            return tablaDatos;
         }
         public void readTable(string nombreTabla)
         {
             conectar();
             comando.CommandText = "select * from " + nombreTabla;
-            dataReader = comando.ExecuteReader();
+            lectorDatos = comando.ExecuteReader();
         }
 
         /********************************************************************************************************************************
@@ -149,6 +151,101 @@ namespace TrabajoFinalCines
 
             result = (bool)(comando.Parameters["@Result"].Value); // asignamos a la variable result el parametro que nos devuelve el procedimiento, que es un bit en sql, lo cual nos indica que en c# es de tipo bool (ver https://msdn.microsoft.com/es-es/library/yy6y35y8(v=vs.110).aspx)
             tipo = (int)(comando.Parameters["@Tipo"].Value);
+        }
+
+        public void recuperarTabla(DataSet dataSet, string nombreTabla)
+        {
+            /*********************************************************
+             * Para mayor información sobre lo que hace este metodo
+             * ver el siguiente tutorial de microsoft:
+             * https://support.microsoft.com/es-es/kb/314145
+             *********************************************************/
+
+            adaptador = new SqlDataAdapter("Select * from "+nombreTabla, conexion);
+            adaptador.FillSchema(dataSet, SchemaType.Source, nombreTabla);
+            adaptador.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+            adaptador.Fill(dataSet, nombreTabla);
+        }
+
+        public void crearDataSet()
+        {
+            /*********************************************************
+             * Para mayor información sobre lo que hace este metodo
+             * ver el siguiente tutorial de microsoft:
+             * https://support.microsoft.com/es-es/kb/314145
+             *********************************************************/
+
+            try
+            {
+                dbCines = new DataSet("CINES");
+
+                conexion.ConnectionString = cadenaConexion;
+                conexion.Open();
+
+                recuperarTabla(dbCines,"Provincias");
+                
+                recuperarTabla(dbCines,"Departamentos");
+                
+                recuperarTabla(dbCines,"Localidades");
+                
+                recuperarTabla(dbCines,"Barrios");
+                
+                recuperarTabla(dbCines,"Condiciones_Fiscales");
+                
+                recuperarTabla(dbCines,"Beneficios");
+                
+                recuperarTabla(dbCines,"Clientes");
+
+                recuperarTabla(dbCines,"Tipo_Promociones");
+
+                recuperarTabla(dbCines,"Promociones");
+
+                recuperarTabla(dbCines,"Formas_de_Pagos");
+
+                recuperarTabla(dbCines,"Cines");
+
+                recuperarTabla(dbCines,"Facturas");
+
+                recuperarTabla(dbCines,"Calificacion");
+
+                recuperarTabla(dbCines,"Generos");
+
+                recuperarTabla(dbCines,"Peliculas");
+
+                recuperarTabla(dbCines,"Tipos_Salas");
+
+                recuperarTabla(dbCines,"Salas");
+
+                recuperarTabla(dbCines,"EstadoButacas");
+
+                recuperarTabla(dbCines,"Butacas");
+
+                recuperarTabla(dbCines,"Entradas");
+
+                recuperarTabla(dbCines,"Funciones");
+
+                recuperarTabla(dbCines,"Detalles_Facturas");
+
+                recuperarTabla(dbCines,"Reservas");
+
+                recuperarTabla(dbCines,"Detalles_Reservas");
+
+                recuperarTabla(dbCines,"user_categories");
+
+                recuperarTabla(dbCines,"users");
+
+                conexion.Close();
+                conexion.Dispose();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Se detectaron errores: " + ex.ToString());
+            }
+        }
+
+        public void eliminarDataSet(DataSet dataSet)
+        {
+            dataSet.Dispose();
         }
     }
 }

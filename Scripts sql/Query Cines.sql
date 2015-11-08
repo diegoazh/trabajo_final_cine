@@ -139,9 +139,9 @@ go
 create table Cines(
 id_cine int identity(1,1) not null,
 nombre varchar (50) not null,
-razon_social varchar not null,
+razon_social varchar(50) not null,
 cuit bigint not null,
-direccion varchar not null,
+direccion varchar(150) not null,
 id_cond_fiscal int,
 id_barrio int,
 created_at datetime,
