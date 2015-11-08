@@ -14,6 +14,7 @@ namespace TrabajoFinalCines
     {
         string database = "Data Source=.;Initial Catalog=CINES;Integrated Security=True";
         DatosSQL con;
+        DataTable tablaTemporal;
         List<DataTable> tablas;
         List<string> columnas;
 
@@ -73,7 +74,9 @@ namespace TrabajoFinalCines
         }
         public void removerColumnas(List<string> list, CheckedListBox checkedListBox, DataGridView dataGridView, DataTable dataTable)
         {
-            list.Clear();
+            if (list is Object)
+                list.Clear();
+
             list = new List<string>();
 
             for (int i = 0; i < dataTable.Columns.Count; i++)
@@ -125,7 +128,8 @@ namespace TrabajoFinalCines
 
         private void btnAdminConsultar_Click(object sender, EventArgs e)
         {
-            con.TablaDatos.Clear();
+            con.TablaDatos = null;
+            con.TablaDatos = new DataTable();
             consultasALaDB(cboTablas,chkLbCampos,dtgvContenidoTablas);
             removerColumnas(columnas, chkLbCampos, dtgvContenidoTablas, con.TablaDatos);
             dtgvContenidoTablas.Refresh();

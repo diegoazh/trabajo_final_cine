@@ -60,10 +60,12 @@
             // 
             // dtgvContenidoTablas
             // 
+            this.dtgvContenidoTablas.AllowUserToAddRows = false;
             this.dtgvContenidoTablas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvContenidoTablas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgvContenidoTablas.Location = new System.Drawing.Point(3, 63);
             this.dtgvContenidoTablas.Name = "dtgvContenidoTablas";
+            this.dtgvContenidoTablas.RowHeadersVisible = false;
             this.dtgvContenidoTablas.Size = new System.Drawing.Size(1227, 433);
             this.dtgvContenidoTablas.TabIndex = 0;
             // 

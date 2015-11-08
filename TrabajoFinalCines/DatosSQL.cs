@@ -85,6 +85,8 @@ namespace TrabajoFinalCines
         {
             conectar();
             comando.CommandText = "select * from " + nombreTabla;
+            tablaDatos = null;
+            tablaDatos = new DataTable();
             tablaDatos.Load(comando.ExecuteReader());
             desconectar();
             return tablaDatos;
@@ -93,7 +95,16 @@ namespace TrabajoFinalCines
         {
             conectar();
             comando.CommandText = query;
-            tablaDatos.Load(comando.ExecuteReader());
+            try
+            {
+                tablaDatos = null;
+                tablaDatos = new DataTable();
+                tablaDatos.Load(comando.ExecuteReader());
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("No se encontro nada o la tabla estaba vacía. \n" + ex.ToString());
+            }
             desconectar();
             return tablaDatos;
         }
@@ -188,55 +199,30 @@ namespace TrabajoFinalCines
                 conexion.Open();
 
                 recuperarTabla(dbCines,"Provincias");
-                
                 recuperarTabla(dbCines,"Departamentos");
-                
                 recuperarTabla(dbCines,"Localidades");
-                
                 recuperarTabla(dbCines,"Barrios");
-                
                 recuperarTabla(dbCines,"Condiciones_Fiscales");
-                
                 recuperarTabla(dbCines,"Beneficios");
-                
                 recuperarTabla(dbCines,"Clientes");
-
                 recuperarTabla(dbCines,"Tipo_Promociones");
-
                 recuperarTabla(dbCines,"Promociones");
-
                 recuperarTabla(dbCines,"Formas_de_Pagos");
-
                 recuperarTabla(dbCines,"Cines");
-
                 recuperarTabla(dbCines,"Facturas");
-
                 recuperarTabla(dbCines,"Calificacion");
-
                 recuperarTabla(dbCines,"Generos");
-
                 recuperarTabla(dbCines,"Peliculas");
-
                 recuperarTabla(dbCines,"Tipos_Salas");
-
                 recuperarTabla(dbCines,"Salas");
-
                 recuperarTabla(dbCines,"EstadoButacas");
-
                 recuperarTabla(dbCines,"Butacas");
-
                 recuperarTabla(dbCines,"Entradas");
-
                 recuperarTabla(dbCines,"Funciones");
-
                 recuperarTabla(dbCines,"Detalles_Facturas");
-
                 recuperarTabla(dbCines,"Reservas");
-
                 recuperarTabla(dbCines,"Detalles_Reservas");
-
                 recuperarTabla(dbCines,"user_categories");
-
                 recuperarTabla(dbCines,"users");
 
                 conexion.Close();

@@ -27,7 +27,7 @@ namespace TrabajoFinalCines
              * Para más detalles de lo que vamos a realizar ver el siguiente post: http://ltuttini.blogspot.com.ar/2009/09/c-winforms-realizar-tareas-antes-de.html
              * 
              ******************************************************************************************************************************************************/
-            frmLogin log = new frmLogin(); // creamos el objeto del form
+            /*frmLogin log = new frmLogin(); // creamos el objeto del form
 
             do
             {
@@ -44,7 +44,8 @@ namespace TrabajoFinalCines
                 {
                     Application.Run(new frmAppPrincipal());
                 }
-            }
+            }*/
+            Application.Run(new frmAdministrador());
         }
     }
 }
