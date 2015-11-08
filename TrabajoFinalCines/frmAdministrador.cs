@@ -15,6 +15,7 @@ namespace TrabajoFinalCines
         string database = "Data Source=.;Initial Catalog=CINES;Integrated Security=True";
         DatosSQL con;
         List<DataTable> tablas;
+        List<string> columnas;
 
         /****************************************************************
          * Metodos para el manejor del form
@@ -70,6 +71,29 @@ namespace TrabajoFinalCines
                 MessageBox.Show("Se encontraron errores: " + ex.ToString());
             }
         }
+        public void removerColumnas(List<string> list, CheckedListBox checkedListBox, DataGridView dataGridView, DataTable dataTable)
+        {
+            list.Clear();
+            list = new List<string>();
+
+            for (int i = 0; i < dataTable.Columns.Count; i++)
+            {
+                list.Add(dataTable.Columns[i].ColumnName.ToString());
+            }
+
+            for (int a = 0; a < checkedListBox.CheckedItems.Count; a++)
+            {
+                list.Remove(checkedListBox.CheckedItems[a].ToString());
+            }
+
+            if (checkedListBox.CheckedItems.Count != 0)
+            {
+                for (int b = 0; b < list.Count; b++)
+                {
+                    dataGridView.Columns.Remove(list[b]);
+                }
+            }
+        }
         /****************************************************************
          * Fin metodos para el manejor del form
          ****************************************************************/
@@ -103,6 +127,8 @@ namespace TrabajoFinalCines
         {
             con.TablaDatos.Clear();
             consultasALaDB(cboTablas,chkLbCampos,dtgvContenidoTablas);
+            removerColumnas(columnas, chkLbCampos, dtgvContenidoTablas, con.TablaDatos);
+            dtgvContenidoTablas.Refresh();
         }
     }
 }

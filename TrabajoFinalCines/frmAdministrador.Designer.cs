@@ -31,11 +31,11 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dtgvContenidoTablas = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnAdminConsultar = new System.Windows.Forms.Button();
             this.lblAdminCampos = new System.Windows.Forms.Label();
             this.chkLbCampos = new System.Windows.Forms.CheckedListBox();
             this.lblAdminTablas = new System.Windows.Forms.Label();
             this.cboTablas = new System.Windows.Forms.ComboBox();
-            this.btnAdminConsultar = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvContenidoTablas)).BeginInit();
             this.panel1.SuspendLayout();
@@ -80,6 +80,16 @@
             this.panel1.Size = new System.Drawing.Size(405, 433);
             this.panel1.TabIndex = 1;
             // 
+            // btnAdminConsultar
+            // 
+            this.btnAdminConsultar.Location = new System.Drawing.Point(85, 389);
+            this.btnAdminConsultar.Name = "btnAdminConsultar";
+            this.btnAdminConsultar.Size = new System.Drawing.Size(148, 41);
+            this.btnAdminConsultar.TabIndex = 4;
+            this.btnAdminConsultar.Text = "Consultar";
+            this.btnAdminConsultar.UseVisualStyleBackColor = true;
+            this.btnAdminConsultar.Click += new System.EventHandler(this.btnAdminConsultar_Click);
+            // 
             // lblAdminCampos
             // 
             this.lblAdminCampos.AutoSize = true;
@@ -92,6 +102,7 @@
             // 
             // chkLbCampos
             // 
+            this.chkLbCampos.CheckOnClick = true;
             this.chkLbCampos.FormattingEnabled = true;
             this.chkLbCampos.Location = new System.Drawing.Point(85, 48);
             this.chkLbCampos.Name = "chkLbCampos";
@@ -118,16 +129,6 @@
             this.cboTablas.TabIndex = 0;
             this.cboTablas.SelectedIndexChanged += new System.EventHandler(this.cboTablas_SelectedIndexChanged);
             // 
-            // btnAdminConsultar
-            // 
-            this.btnAdminConsultar.Location = new System.Drawing.Point(85, 389);
-            this.btnAdminConsultar.Name = "btnAdminConsultar";
-            this.btnAdminConsultar.Size = new System.Drawing.Size(148, 41);
-            this.btnAdminConsultar.TabIndex = 4;
-            this.btnAdminConsultar.Text = "Consultar";
-            this.btnAdminConsultar.UseVisualStyleBackColor = true;
-            this.btnAdminConsultar.Click += new System.EventHandler(this.btnAdminConsultar_Click);
-            // 
             // frmAdministrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -135,6 +136,7 @@
             this.ClientSize = new System.Drawing.Size(1644, 793);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "frmAdministrador";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Administrador";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmAdministrador_FormClosing);
             this.Load += new System.EventHandler(this.frmAdministrador_Load);
