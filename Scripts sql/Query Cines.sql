@@ -470,10 +470,40 @@ where (f.id_factura = d.id_factura) and (d.id_funcion = fun.id_funcion) and
 (f.id_cliente = c.id_cliente) and (fun.id_pelicula = p.id_pelicula) and
 (f.fecha between @FechaDesde and @FechaHasta) and (p.id_pelicula = @Pelicula) and (c.socio = @Socio)
 group by p.nombre
+end;
+go
+-- Socios que hayan visto determinada pelicula entre el determinadas fechas, y que se hayan sentado más de tres veces en la misma butaca.
+create procedure sp_clientesPorPeliculaYButacaEnFecha
+@Pelicula int = 1,
+@socio bit = 0,
+@Butaca int = 1,
+@FechaDesde date,
+@FechaHasta date
+as
+if @FechaDesde = null
+	return
+if @FechaHasta = null
+	return
+begin
+select c.nom_cliente as 'NOMBRE', c.ape_cliente as 'APELLIDO', p.nombre as 'PELICULA', s.nombre_sala as 'SALA', b.butaca as 'BUTACA'
+from Clientes as c join Facturas as f on c.id_cliente = f.id_cliente
+	join Detalles_Facturas as d on f.id_factura = d.id_factura
+	join Funciones as fun on d.id_funcion = fun.id_funcion
+	join Peliculas as p on fun.id_pelicula = p.id_pelicula
+	join Salas as s on fun.id_sala = s.id_sala
+	join Butacas as b on s.id_sala = b.id_sala
+where (p.id_pelicula = @Pelicula) and (f.fecha between @FechaDesde and @FechaHasta) and (c.socio = @socio)
+and 3 < (
+	select count(b2.id_butaca)
+	from Clientes as c2 join Facturas as f2 on c2.id_cliente = f2.id_cliente
+		join Detalles_Facturas as d2 on f2.id_factura = d2.id_factura
+		join Funciones as fun2 on d2.id_funcion = fun2.id_funcion
+		join Salas as s2 on fun2.id_sala = s2.id_sala
+		join Butacas as b2 on s2.id_sala = b2.id_sala
+	where b2.id_butaca = @Butaca and c2.id_cliente = c.id_cliente
+)
 end
-
--- Clientes qe no hayan visto las primeras 39 películas que emitió el cine, entre el 1/5 y el 30/6 de este año y que se hayan sentado en las butacas 3, 5 o 7 y que además sean socios.
-
+go
 
  /******************************************************
  *

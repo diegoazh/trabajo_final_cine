@@ -55,7 +55,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1644, 793);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1198, 793);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // dtgvContenidoTablas
@@ -66,7 +66,7 @@
             this.dtgvContenidoTablas.Location = new System.Drawing.Point(3, 63);
             this.dtgvContenidoTablas.Name = "dtgvContenidoTablas";
             this.dtgvContenidoTablas.RowHeadersVisible = false;
-            this.dtgvContenidoTablas.Size = new System.Drawing.Size(1227, 433);
+            this.dtgvContenidoTablas.Size = new System.Drawing.Size(892, 433);
             this.dtgvContenidoTablas.TabIndex = 0;
             // 
             // panel1
@@ -77,9 +77,9 @@
             this.panel1.Controls.Add(this.lblAdminTablas);
             this.panel1.Controls.Add(this.cboTablas);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(1236, 63);
+            this.panel1.Location = new System.Drawing.Point(901, 63);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(405, 433);
+            this.panel1.Size = new System.Drawing.Size(294, 433);
             this.panel1.TabIndex = 1;
             // 
             // btnAdminConsultar
@@ -135,7 +135,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1644, 793);
+            this.ClientSize = new System.Drawing.Size(1198, 793);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "frmAdministrador";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
