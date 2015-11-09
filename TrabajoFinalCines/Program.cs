@@ -36,7 +36,7 @@ namespace TrabajoFinalCines
 
             if (log.Result == "OK") // si salimos del bucle fue porque el reultado fue Yes, result de frmLogin contiene el string OK iniciamos la app, de otra forma el programa finaliza.
             {
-                if(log.Category == 1 || log.Category == 2)
+                if (log.Category == 1 || log.Category == 2)
                 {
                     Application.Run(new frmAdministrador());
                 }

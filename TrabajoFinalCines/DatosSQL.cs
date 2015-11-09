@@ -184,6 +184,118 @@ namespace TrabajoFinalCines
             tipo = (int)(comando.Parameters["@Tipo"].Value);
         }
 
+        public DataTable recaudacionPorGenero(int genero, int mes)
+        {
+            DataTable tablaRetornada = new DataTable();
+            comando.CommandType = CommandType.Text;
+            comando.CommandText = "sp_recaudacionPorGenero " + genero +", "+ mes;
+            //comando.CommandType = System.Data.CommandType.StoredProcedure;
+            //if(comando.Parameters.Contains("@Genero") || comando.Parameters.Contains("@Meses"))
+            //{
+            //    comando.Parameters["@Genero"].Value = genero;
+            //    comando.Parameters["@Meses"].Value = mes;
+            //}
+            //else
+            //{
+            //    comando.Parameters.Add("@Genero", SqlDbType.Int).Value = genero;
+            //    comando.Parameters.Add("@Meses", SqlDbType.Int).Value = mes;
+            //}
+            conexion.ConnectionString = cadenaConexion;
+            conexion.Open();
+            comando.Connection = conexion;
+            tablaRetornada.Load(comando.ExecuteReader());
+            desconectar();
+
+            return tablaRetornada;
+        }
+
+        public DataTable recaudacionPorPelicula(int pelicula, int mes)
+        {
+            DataTable tablaRetornada = new DataTable();
+            comando.CommandType = CommandType.Text;
+            comando.CommandText = "sp_recaudacionPorPelicula " + pelicula + ", " + mes;
+            //comando.CommandType = System.Data.CommandType.StoredProcedure;
+            //if (comando.Parameters.Contains("@Pelicula") || comando.Parameters.Contains("@Meses"))
+            //{
+            //    comando.Parameters["@Pelicula"].Value = pelicula;
+            //    comando.Parameters["@Meses"].Value = mes;
+            //}
+            //else
+            //{
+            //    comando.Parameters.Add("@Pelicula", SqlDbType.Int).Value = pelicula;
+            //    comando.Parameters.Add("@Meses", SqlDbType.Int).Value = mes;
+            //}
+            conexion.ConnectionString = cadenaConexion;
+            conexion.Open();
+            comando.Connection = conexion;
+            tablaRetornada.Load(comando.ExecuteReader());
+            desconectar();
+
+            return tablaRetornada;
+        }
+
+        public DataTable clientesNoSociosPorPelicula(int pelicula, bool socio, DateTime fechaDesde, DateTime fechaHasta)
+        {
+            DataTable tablaRetornada = new DataTable();
+            comando.CommandType = CommandType.Text;
+            comando.CommandText = "sp_clientesNoSociosPorPelicula " + pelicula +", "+ socio + ", '" + fechaDesde + "', " +"'" + fechaHasta +"'";
+            //comando.CommandType = System.Data.CommandType.StoredProcedure;
+            //if (comando.Parameters.Contains("@Pelicula") || comando.Parameters.Contains("@Socio") ||
+            //    comando.Parameters.Contains("@FechaDesde") || comando.Parameters.Contains("@FechaHasta"))
+            //{
+            //    comando.Parameters["@Pelicula"].Value = pelicula;
+            //    comando.Parameters["@Socio"].Value = socio;
+            //    comando.Parameters["@FechaDesde"].Value = fechaDesde;
+            //    comando.Parameters["@FechaHasta"].Value = fechaHasta;
+            //}
+            //else
+            //{
+            //    comando.Parameters.Add("@Pelicula", SqlDbType.Int).Value = pelicula;
+            //    comando.Parameters.Add("@Socio", SqlDbType.Bit).Value = socio;
+            //    comando.Parameters.Add("@FechaDesde", SqlDbType.Date).Value = fechaDesde;
+            //    comando.Parameters.Add("@FechaHasta", SqlDbType.Date).Value = fechaHasta;
+            //}
+            conexion.ConnectionString = cadenaConexion;
+            conexion.Open();
+            comando.Connection = conexion;
+            tablaRetornada.Load(comando.ExecuteReader());
+            desconectar();
+
+            return tablaRetornada;
+        }
+
+        public DataTable clientesPorPeliculaYButacaEnFecha(int pelicula, bool socio, int butaca, DateTime fechaDesde, DateTime fechaHasta)
+        {
+            DataTable tablaRetornada = new DataTable();
+            comando.CommandType = CommandType.Text;
+            comando.CommandText = "sp_clientesPorPeliculaYButacaEnFecha " + pelicula + ", " + socio + ", " + butaca + ", '" + fechaDesde + "', " + "'" + fechaHasta + "'";
+            //comando.CommandType = System.Data.CommandType.StoredProcedure;
+            //if (comando.Parameters.Contains("@Pelicula") || comando.Parameters.Contains("@Socio") || comando.Parameters.Contains("@Butaca") ||
+            //    comando.Parameters.Contains("@FechaDesde") || comando.Parameters.Contains("@FechaHasta"))
+            //{
+            //    comando.Parameters["@Pelicula"].Value = pelicula;
+            //    comando.Parameters["@Socio"].Value = socio;
+            //    comando.Parameters["@Butaca"].Value = butaca;
+            //    comando.Parameters["@FechaDesde"].Value = fechaDesde;
+            //    comando.Parameters["@FechaHasta"].Value = fechaHasta;
+            //}
+            //else
+            //{
+            //    comando.Parameters.Add("@Pelicula", SqlDbType.Int).Value = pelicula;
+            //    comando.Parameters.Add("@Socio", SqlDbType.Bit).Value = socio;
+            //    comando.Parameters.Add("@Butaca", SqlDbType.Int).Value = butaca;
+            //    comando.Parameters.Add("@FechaDesde", SqlDbType.Date).Value = fechaDesde;
+            //    comando.Parameters.Add("@FechaHasta", SqlDbType.Date).Value = fechaHasta;
+            //}
+            conexion.ConnectionString = cadenaConexion;
+            conexion.Open();
+            comando.Connection = conexion;
+            tablaRetornada.Load(comando.ExecuteReader());
+            desconectar();
+
+            return tablaRetornada;
+        }
+
         public void recuperarTabla(DataSet dataSet, string nombreTabla)
         {
             /*********************************************************

@@ -87,11 +87,41 @@
       <DependentUpon>frmAppPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="DatosSQL.cs" />
+    <Compile Include="frmConsGeneradas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConsGeneradas.Designer.cs">
+      <DependentUpon>frmConsGeneradas.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPeliXCalif.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPeliXCalif.Designer.cs">
+      <DependentUpon>frmPeliXCalif.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRecXGenero.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRecXGenero.Designer.cs">
+      <DependentUpon>frmRecXGenero.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRecXPeli.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRecXPeli.Designer.cs">
+      <DependentUpon>frmRecXPeli.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSocXPeli.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSocXPeli.Designer.cs">
+      <DependentUpon>frmSocXPeli.cs</DependentUpon>
     </Compile>
     <Compile Include="Funcion.cs" />
     <Compile Include="ManejoForm.cs" />
@@ -113,8 +143,20 @@
     <EmbeddedResource Include="frmAppPrincipal.resx">
       <DependentUpon>frmAppPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmConsGeneradas.resx">
+      <DependentUpon>frmConsGeneradas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPeliXCalif.resx">
+      <DependentUpon>frmPeliXCalif.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRecXGenero.resx">
+      <DependentUpon>frmRecXGenero.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSocXPeli.resx">
+      <DependentUpon>frmSocXPeli.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

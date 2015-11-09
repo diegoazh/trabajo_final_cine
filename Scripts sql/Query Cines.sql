@@ -287,7 +287,9 @@ create table Detalles_Facturas(
 id_detalle int identity(1,1) not null,
 id_entrada int,
 id_promocion int null,
+monto_promocion money,
 id_beneficio int null,
+monto_beneficio money,
 id_funcion int,
 id_butaca int,
 id_factura bigint,
@@ -424,11 +426,9 @@ go
 -- El total recaudado por el genero en el periodo de meses pedido y hasta la fecha.
 create procedure sp_recaudacionPorGenero
 @Genero int = 1,
-@Meses int = 1,
-@Beneficio money = 0.0,
-@Promocion money = 0.0
+@Meses int = 1
 as
-select g.genero as 'Genero de pelicula', sum(e.precio - @Beneficio - @Promocion) as 'Totales Generales'
+select g.genero as 'Genero de pelicula', sum(e.precio - d.monto_promocion - d.monto_beneficio) as 'Totales Generales'
 from Facturas as f, Detalles_Facturas as d, Entradas as e, Funciones as fun, Peliculas as p, Generos as g
 where (f.id_factura = d.id_factura) and (d.id_entrada = e.id_entrada) 
 and (fun.id_funcion = d.id_funcion) and (fun.id_pelicula = p.id_pelicula)
@@ -440,11 +440,9 @@ go
 -- El total recaudado la película en el periodo de meses pedido y hasta la fecha.
 create procedure sp_recaudacionPorPelicula
 @Pelicula int = 1,
-@Meses int = 1,
-@Beneficio money = 0.0,
-@Promocion money = 0.0
+@Meses int = 1
 as
-select p.nombre as 'Título de la Película', sum(e.precio - @Beneficio - @Promocion) as 'Totales Generales'
+select p.nombre as 'Título de la Película', sum(e.precio - d.monto_promocion - d.monto_beneficio) as 'Totales Generales'
 from Facturas as f, Detalles_Facturas as d, Entradas as e, Funciones as fun, Peliculas as p
 where (f.id_factura = d.id_factura) and (d.id_entrada = e.id_entrada) 
 and (fun.id_funcion = d.id_funcion) and (fun.id_pelicula = p.id_pelicula)
@@ -452,7 +450,7 @@ and (p.id_pelicula = @Pelicula) and (f.fecha between dateadd(month, -@Meses, get
 group by p.nombre;
 go
 
--- Clientes que vieron determinada película , que sean o no socios en el periodo de tiempo especificado.
+-- Pelicuas por calificacion, cantidad de clientes y entradas.
 create procedure sp_clientesNoSociosPorPelicula
 @Pelicula int = 1,
 @Socio bit = 0,
@@ -464,14 +462,15 @@ if @FechaDesde = NULL
 if @FechaHasta = NULL
 	return
 begin
-select p.nombre as 'Título de la Pélicula', count(*) as 'Cantidad de clientes'
-from Facturas as f, Detalles_Facturas as d, Clientes as c, Funciones as fun, Peliculas as p
-where (f.id_factura = d.id_factura) and (d.id_funcion = fun.id_funcion) and 
-(f.id_cliente = c.id_cliente) and (fun.id_pelicula = p.id_pelicula) and
-(f.fecha between @FechaDesde and @FechaHasta) and (p.id_pelicula = @Pelicula) and (c.socio = @Socio)
-group by p.nombre
+select p.nombre as 'Título de la Pélicula', p.descripcion as 'Calificacion', count(*) as 'Cantidad de clientes', count(d.id_entrada) 'Cantidad de entradas'
+from Facturas as f, Detalles_Facturas as d, Entradas as e, Clientes as c, Funciones as fun, Peliculas as p, Calificacion as cal
+where (f.id_factura = d.id_factura) and (d.id_funcion = fun.id_funcion) and (d.id_entrada = e.id_entrada) and
+(f.id_cliente = c.id_cliente) and (fun.id_pelicula = p.id_pelicula) and (p.id_calificacion = cal.id_calificacion) and
+(f.fecha between @FechaDesde and @FechaHasta) and (p.id_pelicula = @Pelicula)
+group by p.nombre, p.descripcion
 end;
 go
+
 -- Socios que hayan visto determinada pelicula entre el determinadas fechas, y que se hayan sentado más de tres veces en la misma butaca.
 create procedure sp_clientesPorPeliculaYButacaEnFecha
 @Pelicula int = 1,
