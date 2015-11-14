@@ -19,7 +19,13 @@ namespace TrabajoFinalCines
 
         private void frmAppPrincipal_Load(object sender, EventArgs e)
         {
+            tabControl1.TabPages.Remove(tabPage2);
+        }
 
+        private void nuevaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAgregarPelicula frmAP = new FrmAgregarPelicula();
+            frmAP.ShowDialog();
         }
     }
 }

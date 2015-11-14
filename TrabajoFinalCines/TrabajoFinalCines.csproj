@@ -70,6 +70,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AgregarPelicula.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AgregarPelicula.Designer.cs">
+      <DependentUpon>AgregarPelicula.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAdministrador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +143,9 @@
     <Compile Include="Reserva.cs" />
     <Compile Include="Sala.cs" />
     <Compile Include="Validaciones.cs" />
+    <EmbeddedResource Include="AgregarPelicula.resx">
+      <DependentUpon>AgregarPelicula.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAdministrador.resx">
       <DependentUpon>frmAdministrador.cs</DependentUpon>
     </EmbeddedResource>

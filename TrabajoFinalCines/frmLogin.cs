@@ -14,7 +14,7 @@ namespace TrabajoFinalCines
     {
         DatosSQL con;
         Validaciones val;
-        string database = "Data Source=.;Initial Catalog=CINES;Integrated Security=True";
+        string database = @"Data Source=PC\SQLEXPRESS;Initial Catalog=CINES;Integrated Security=True";
         string user, pass;
         string result; // esta variable la vamos a utilizar en la clase program para evaluar si iniciamos la app principal o no.
         int category; // esta variable la vamos a utilizar en la clase program para evaluar si iniciamos la app de administrador o no.

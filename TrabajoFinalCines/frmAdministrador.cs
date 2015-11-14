@@ -13,7 +13,7 @@ namespace TrabajoFinalCines
 {
     public partial class frmAdministrador : Form
     {
-        string database = "Data Source=.;Initial Catalog=CINES;Integrated Security=True";
+        string database = @"Data Source=PC\SQLEXPRESS;Initial Catalog=CINES;Integrated Security=True";
         DatosSQL con;
         DataTable laTabla;
         DataTable tablaConsulta;
@@ -245,10 +245,9 @@ namespace TrabajoFinalCines
                 soc = false;
             string desde = Convert.ToString(dtpRecCalDesde.Value.Date);
             string hasta = Convert.ToString(dtpRecCalHasta.Value.Date);
-            string pattern = @"/(\d{2})[/|-](\d{2})[/|-](\d{4})( \d{2}:\d{2}:\d{2})/g";
-            string replace = @"$3-$2-$1";
-            desde = Regex.Replace(desde, pattern, replace);
-            hasta = Regex.Replace(hasta, pattern, replace);
+            string pattern = @"/(\d*[/|-]\d*)/g";
+            desde = Regex.Replace(desde, pattern, String.Empty);
+            hasta = Regex.Replace(hasta, pattern, String.Empty);
 
             tablaConsulta = null;
             tablaConsulta = new DataTable();
@@ -288,10 +287,9 @@ namespace TrabajoFinalCines
                 soc = false;
             string desde = Convert.ToString(dtpSocDesde.Value.Date);
             string hasta = Convert.ToString(dtpSocHasta.Value.Date);
-            string pattern = @"/(\d{2})[/|-](\d{2})[/|-](\d{4})( \d{2}:\d{2}:\d{2})/g";
-            string replace = @"$3-$2-$1";
-            desde = Regex.Replace(desde,pattern,replace);
-            hasta = Regex.Replace(hasta, pattern, replace);
+            string pattern = @"/(\d*[/|-]\d*)/g";
+            desde = Regex.Replace(desde, pattern, String.Empty);
+            hasta = Regex.Replace(hasta, pattern, String.Empty);
 
             tablaConsulta = null;
             tablaConsulta = new DataTable();

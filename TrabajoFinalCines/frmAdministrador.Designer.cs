@@ -40,6 +40,7 @@
             this.btnVerConsultas = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.grpbSocPeli = new System.Windows.Forms.GroupBox();
+            this.chkSocSocio = new System.Windows.Forms.CheckBox();
             this.lblSocButaca = new System.Windows.Forms.Label();
             this.txtSocButaca = new System.Windows.Forms.TextBox();
             this.dtpSocHasta = new System.Windows.Forms.DateTimePicker();
@@ -51,6 +52,7 @@
             this.lblSocDesde = new System.Windows.Forms.Label();
             this.lblSocSocio = new System.Windows.Forms.Label();
             this.grpbRecXCal = new System.Windows.Forms.GroupBox();
+            this.chkRecCalSoc = new System.Windows.Forms.CheckBox();
             this.dtpRecCalHasta = new System.Windows.Forms.DateTimePicker();
             this.lblRecCalHasta = new System.Windows.Forms.Label();
             this.dtpRecCalDesde = new System.Windows.Forms.DateTimePicker();
@@ -73,8 +75,6 @@
             this.lblRecMeses = new System.Windows.Forms.Label();
             this.txtRecGenero = new System.Windows.Forms.TextBox();
             this.lblRecGenero = new System.Windows.Forms.Label();
-            this.chkRecCalSoc = new System.Windows.Forms.CheckBox();
-            this.chkSocSocio = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvContenidoTablas)).BeginInit();
             this.panel1.SuspendLayout();
@@ -102,7 +102,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1198, 793);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1198, 741);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // dtgvContenidoTablas
@@ -113,7 +113,7 @@
             this.dtgvContenidoTablas.Location = new System.Drawing.Point(3, 63);
             this.dtgvContenidoTablas.Name = "dtgvContenidoTablas";
             this.dtgvContenidoTablas.RowHeadersVisible = false;
-            this.dtgvContenidoTablas.Size = new System.Drawing.Size(952, 433);
+            this.dtgvContenidoTablas.Size = new System.Drawing.Size(952, 402);
             this.dtgvContenidoTablas.TabIndex = 0;
             // 
             // panel1
@@ -126,7 +126,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(961, 63);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(234, 433);
+            this.panel1.Size = new System.Drawing.Size(234, 402);
             this.panel1.TabIndex = 1;
             // 
             // btnAdminConsultar
@@ -206,9 +206,9 @@
             this.panel3.Controls.Add(this.grpbRecXPeli);
             this.panel3.Controls.Add(this.grpbRecXGen);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(3, 502);
+            this.panel3.Location = new System.Drawing.Point(3, 471);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(952, 288);
+            this.panel3.Size = new System.Drawing.Size(952, 267);
             this.panel3.TabIndex = 3;
             // 
             // grpbSocPeli
@@ -230,6 +230,15 @@
             this.grpbSocPeli.TabIndex = 14;
             this.grpbSocPeli.TabStop = false;
             this.grpbSocPeli.Text = "Socio por Película";
+            // 
+            // chkSocSocio
+            // 
+            this.chkSocSocio.AutoSize = true;
+            this.chkSocSocio.Location = new System.Drawing.Point(93, 64);
+            this.chkSocSocio.Name = "chkSocSocio";
+            this.chkSocSocio.Size = new System.Drawing.Size(15, 14);
+            this.chkSocSocio.TabIndex = 27;
+            this.chkSocSocio.UseVisualStyleBackColor = true;
             // 
             // lblSocButaca
             // 
@@ -344,6 +353,15 @@
             this.grpbRecXCal.TabStop = false;
             this.grpbRecXCal.Text = "Recaudación por Calificación";
             // 
+            // chkRecCalSoc
+            // 
+            this.chkRecCalSoc.AutoSize = true;
+            this.chkRecCalSoc.Location = new System.Drawing.Point(91, 63);
+            this.chkRecCalSoc.Name = "chkRecCalSoc";
+            this.chkRecCalSoc.Size = new System.Drawing.Size(15, 14);
+            this.chkRecCalSoc.TabIndex = 17;
+            this.chkRecCalSoc.UseVisualStyleBackColor = true;
+            // 
             // dtpRecCalHasta
             // 
             this.dtpRecCalHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -369,6 +387,7 @@
             this.dtpRecCalDesde.Name = "dtpRecCalDesde";
             this.dtpRecCalDesde.Size = new System.Drawing.Size(100, 20);
             this.dtpRecCalDesde.TabIndex = 14;
+            this.dtpRecCalDesde.Value = new System.DateTime(2015, 11, 10, 0, 0, 0, 0);
             // 
             // lblRecCalDesde
             // 
@@ -564,29 +583,11 @@
             this.lblRecGenero.TabIndex = 6;
             this.lblRecGenero.Text = "Genero";
             // 
-            // chkRecCalSoc
-            // 
-            this.chkRecCalSoc.AutoSize = true;
-            this.chkRecCalSoc.Location = new System.Drawing.Point(91, 63);
-            this.chkRecCalSoc.Name = "chkRecCalSoc";
-            this.chkRecCalSoc.Size = new System.Drawing.Size(15, 14);
-            this.chkRecCalSoc.TabIndex = 17;
-            this.chkRecCalSoc.UseVisualStyleBackColor = true;
-            // 
-            // chkSocSocio
-            // 
-            this.chkSocSocio.AutoSize = true;
-            this.chkSocSocio.Location = new System.Drawing.Point(93, 64);
-            this.chkSocSocio.Name = "chkSocSocio";
-            this.chkSocSocio.Size = new System.Drawing.Size(15, 14);
-            this.chkSocSocio.TabIndex = 27;
-            this.chkSocSocio.UseVisualStyleBackColor = true;
-            // 
             // frmAdministrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1198, 793);
+            this.ClientSize = new System.Drawing.Size(1198, 741);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "frmAdministrador";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

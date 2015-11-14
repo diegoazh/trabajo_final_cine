@@ -30,30 +30,32 @@ namespace TrabajoFinalCines
             nombre.DisplayMember = cnx.TablaDatos.Columns[1].ColumnName;
         }
 
-        /*public void cargarLista(ListBox nombre, string tabla, out Producto[] vector)
+        public void cargarLista(ListBox nombre, string tabla, out Pelicula[] vector)
         {
-            Producto[] vp = new Producto[50];
+            Pelicula[] vp = new Pelicula[50];
             cnx.readTable(tabla);
             int c = 0;
-            while (cnx.pDataReader.Read())
+            while (cnx.LectorDatos.Read())
             {
-                Producto p = new Producto();
-                if (!cnx.pDataReader.IsDBNull(0))
-                    p.pCodigo = cnx.pDataReader.GetInt32(0);
-                if (!cnx.pDataReader.IsDBNull(1))
-                    p.pDetalle = cnx.pDataReader.GetString(1);
-                if (!cnx.pDataReader.IsDBNull(2))
-                    p.pTipo = cnx.pDataReader.GetInt32(2);
-                if (!cnx.pDataReader.IsDBNull(3))
-                    p.pMarca = cnx.pDataReader.GetInt32(3);
-                if (!cnx.pDataReader.IsDBNull(4))
-                    p.pPrecio = cnx.pDataReader.GetDouble(4);
-                if (!cnx.pDataReader.IsDBNull(5))
-                    p.pFecha = cnx.pDataReader.GetDateTime(5);
+                Pelicula p = new Pelicula();
+                if (!cnx.LectorDatos.IsDBNull(0))
+                    p.IdPelicula = cnx.LectorDatos.GetInt32(0);
+                if (!cnx.LectorDatos.IsDBNull(1))
+                    p.Nombre = cnx.LectorDatos.GetString(1);
+                if (!cnx.LectorDatos.IsDBNull(2))
+                    p.Descripcion = cnx.LectorDatos.GetString(2);
+                if (!cnx.LectorDatos.IsDBNull(3))
+                    p.Estreno = cnx.LectorDatos.GetInt32(3);
+                if (!cnx.LectorDatos.IsDBNull(4))
+                    p.Duracion = cnx.LectorDatos.GetString(4);
+                if (!cnx.LectorDatos.IsDBNull(5))
+                    p.Genero = cnx.LectorDatos.GetInt32(5);
+                if (!cnx.LectorDatos.IsDBNull(6))
+                    p.Calificacion = cnx.LectorDatos.GetInt32(6);
                 vp[c] = p;
                 c++;
             }
-            cnx.pDataReader.Close();
+            cnx.LectorDatos.Close();
             cnx.desconectar();
 
             nombre.Items.Clear();
@@ -63,7 +65,7 @@ namespace TrabajoFinalCines
             }
 
             vector = vp;
-        }*/
+        }
 
         public void limpiarText(Form form)
         {
