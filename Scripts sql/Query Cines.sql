@@ -503,12 +503,16 @@ and 3 < (
 )
 end
 go
-
  /******************************************************
  *
  * Vistas
  *
  ******************************************************/
+ create view vPeliculas as
+ select p.id_pelicula as 'Codigo', p.nombre as 'Titulo', p.descripcion as 'Descripcion', p.estreno as 'Estreno', p.duracion as 'Duracion', g.genero as 'Genero', c.descripcion as 'Calificacion'
+ from Peliculas as p join Generos as g on p.id_genero = g.id_genero
+ join Calificacion as c on p.id_calificacion = c.id_calificacion
+ where p.deleted_at = null;
 
 /******************************************************
  *

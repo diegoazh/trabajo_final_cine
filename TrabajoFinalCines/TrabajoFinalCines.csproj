@@ -70,11 +70,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AgregarPelicula.cs">
+    <Compile Include="frmAgregarPelicula.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AgregarPelicula.Designer.cs">
-      <DependentUpon>AgregarPelicula.cs</DependentUpon>
+    <Compile Include="frmAgregarPelicula.Designer.cs">
+      <DependentUpon>frmAgregarPelicula.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAdministrador.cs">
       <SubType>Form</SubType>
@@ -98,6 +98,12 @@
     </Compile>
     <Compile Include="frmConsGeneradas.Designer.cs">
       <DependentUpon>frmConsGeneradas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListadoPeliculas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListadoPeliculas.Designer.cs">
+      <DependentUpon>frmListadoPeliculas.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -140,11 +146,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="ReportePeliculas.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportePeliculas.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reserva.cs" />
     <Compile Include="Sala.cs" />
     <Compile Include="Validaciones.cs" />
-    <EmbeddedResource Include="AgregarPelicula.resx">
-      <DependentUpon>AgregarPelicula.cs</DependentUpon>
+    <Compile Include="VistaPeliculasDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VistaPeliculasDataSet.xsd</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="frmAgregarPelicula.resx">
+      <DependentUpon>frmAgregarPelicula.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAdministrador.resx">
       <DependentUpon>frmAdministrador.cs</DependentUpon>
@@ -154,6 +171,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmConsGeneradas.resx">
       <DependentUpon>frmConsGeneradas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListadoPeliculas.resx">
+      <DependentUpon>frmListadoPeliculas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
@@ -172,6 +192,10 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReportePeliculas.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReportePeliculas.cs</LastGenOutput>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -181,6 +205,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="VistaPeliculasDataSet.xsc">
+      <DependentUpon>VistaPeliculasDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="VistaPeliculasDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>VistaPeliculasDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="VistaPeliculasDataSet.xss">
+      <DependentUpon>VistaPeliculasDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -216,6 +251,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\success.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
