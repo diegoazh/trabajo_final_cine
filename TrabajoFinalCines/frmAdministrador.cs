@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace TrabajoFinalCines
 {
@@ -242,8 +243,12 @@ namespace TrabajoFinalCines
                 soc = true;
             else
                 soc = false;
-            DateTime desde = dtpRecCalDesde.Value;
-            DateTime hasta = dtpRecCalHasta.Value;
+            string desde = Convert.ToString(dtpRecCalDesde.Value.Date);
+            string hasta = Convert.ToString(dtpRecCalHasta.Value.Date);
+            string pattern = @"/(\d{2})[/|-](\d{2})[/|-](\d{4})( \d{2}:\d{2}:\d{2})/g";
+            string replace = @"$3-$2-$1";
+            desde = Regex.Replace(desde, pattern, replace);
+            hasta = Regex.Replace(hasta, pattern, replace);
 
             tablaConsulta = null;
             tablaConsulta = new DataTable();
@@ -281,8 +286,12 @@ namespace TrabajoFinalCines
                 soc = true;
             else
                 soc = false;
-            DateTime desde = dtpSocDesde.Value;
-            DateTime hasta = dtpSocHasta.Value;
+            string desde = Convert.ToString(dtpSocDesde.Value.Date);
+            string hasta = Convert.ToString(dtpSocHasta.Value.Date);
+            string pattern = @"/(\d{2})[/|-](\d{2})[/|-](\d{4})( \d{2}:\d{2}:\d{2})/g";
+            string replace = @"$3-$2-$1";
+            desde = Regex.Replace(desde,pattern,replace);
+            hasta = Regex.Replace(hasta, pattern, replace);
 
             tablaConsulta = null;
             tablaConsulta = new DataTable();

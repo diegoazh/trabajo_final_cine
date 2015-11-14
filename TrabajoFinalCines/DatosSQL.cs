@@ -234,7 +234,7 @@ namespace TrabajoFinalCines
             return tablaRetornada;
         }
 
-        public DataTable clientesNoSociosPorPelicula(int pelicula, bool socio, DateTime fechaDesde, DateTime fechaHasta)
+        public DataTable clientesNoSociosPorPelicula(int pelicula, bool socio, string fechaDesde, string fechaHasta)
         {
             DataTable tablaRetornada = new DataTable();
             comando.CommandType = CommandType.Text;
@@ -264,7 +264,7 @@ namespace TrabajoFinalCines
             return tablaRetornada;
         }
 
-        public DataTable clientesPorPeliculaYButacaEnFecha(int pelicula, bool socio, int butaca, DateTime fechaDesde, DateTime fechaHasta)
+        public DataTable clientesPorPeliculaYButacaEnFecha(int pelicula, bool socio, int butaca, string fechaDesde, string fechaHasta)
         {
             DataTable tablaRetornada = new DataTable();
             comando.CommandType = CommandType.Text;
