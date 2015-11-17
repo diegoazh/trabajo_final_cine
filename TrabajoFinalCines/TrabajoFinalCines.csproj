@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TrabajoFinalCines</RootNamespace>
     <AssemblyName>TrabajoFinalCines</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <PublishUrl>publicar\</PublishUrl>
@@ -27,6 +27,7 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -70,6 +71,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ReportePeliculas.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportePeliculas.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="frmAgregarPelicula.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,20 +153,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="ReportePeliculas.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ReportePeliculas.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Reserva.cs" />
     <Compile Include="Sala.cs" />
     <Compile Include="Validaciones.cs" />
-    <Compile Include="VistaPeliculasDataSet.Designer.cs">
+    <Compile Include="VistaPeliculaDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>VistaPeliculasDataSet.xsd</DependentUpon>
+      <DependentUpon>VistaPeliculaDataSet.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ReportePeliculas.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReportePeliculas.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAgregarPelicula.resx">
       <DependentUpon>frmAgregarPelicula.cs</DependentUpon>
     </EmbeddedResource>
@@ -192,10 +197,6 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReportePeliculas.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>ReportePeliculas.cs</LastGenOutput>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -205,16 +206,16 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="VistaPeliculasDataSet.xsc">
-      <DependentUpon>VistaPeliculasDataSet.xsd</DependentUpon>
+    <None Include="VistaPeliculaDataSet.xsc">
+      <DependentUpon>VistaPeliculaDataSet.xsd</DependentUpon>
     </None>
-    <None Include="VistaPeliculasDataSet.xsd">
+    <None Include="VistaPeliculaDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>VistaPeliculasDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>VistaPeliculaDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="VistaPeliculasDataSet.xss">
-      <DependentUpon>VistaPeliculasDataSet.xsd</DependentUpon>
+    <None Include="VistaPeliculaDataSet.xss">
+      <DependentUpon>VistaPeliculaDataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

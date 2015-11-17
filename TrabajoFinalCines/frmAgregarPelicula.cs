@@ -124,12 +124,14 @@ namespace TrabajoFinalCines
             nuevo = true;
             mnj.limpiarText(this);
             habilitar();
+            txtNombre.Focus();
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
             nuevo = false;
             habilitar();
+            txtNombre.Focus();
         }
 
         private void btnBorrar_Click(object sender, EventArgs e)
@@ -152,43 +154,46 @@ namespace TrabajoFinalCines
                 MessageBox.Show("Este campo no puede quedar vacio");
                 txtNombre.Focus();
             }
-            if(txtDescripcion.Text == String.Empty)
+            else if (txtDescripcion.Text == String.Empty)
             {
                 MessageBox.Show("Este campo no puede quedar vacio");
                 txtDescripcion.Focus();
             }
-            if(txtDuracion.Text == String.Empty)
+            else if (txtDuracion.Text == String.Empty)
             {
                 MessageBox.Show("Este campo no puede quedar vacio");
                 txtDescripcion.Focus();
             }
-            string dur = txtDuracion.Text;
-
-            pel.Nombre = txtNombre.Text;
-            pel.Descripcion = txtDescripcion.Text;
-            pel.Duracion = dur;
-            if (chkEstreno.Checked)
-                pel.Estreno = 1;
-            else
-                pel.Estreno = 0;
-            pel.Genero = cboxGenero.SelectedIndex+1;
-            pel.Calificacion = cboxCalificacion.SelectedIndex+1;
-
-            string sql;
-            if(nuevo)
-            {
-                sql = "insert into Peliculas values('"+pel.Nombre+"', '"+pel.Descripcion+"', "+pel.Estreno+", '"+pel.Duracion+"', "+pel.Genero+", "+pel.Calificacion+", null, null, null)";
-                con.insertUpdateDelete(sql);
-            }
             else
             {
-                sql = "update peliculas set nombre = '" + pel.Nombre + "', descripcion = '" + pel.Descripcion + "', estreno = " + pel.Estreno + ", duracion = '" + pel.Duracion + "', id_genero = " + pel.Genero + ", id_calificacion = " + pel.Calificacion + " where id_pelicula = " + vp[lstPeliculas.SelectedIndex].IdPelicula;
-                con.insertUpdateDelete(sql);
+                string dur = txtDuracion.Text;
+
+                pel.Nombre = txtNombre.Text;
+                pel.Descripcion = txtDescripcion.Text;
+                pel.Duracion = dur;
+                if (chkEstreno.Checked)
+                    pel.Estreno = 1;
+                else
+                    pel.Estreno = 0;
+                pel.Genero = cboxGenero.SelectedIndex + 1;
+                pel.Calificacion = cboxCalificacion.SelectedIndex + 1;
+
+                string sql;
+                if (nuevo)
+                {
+                    sql = "insert into Peliculas values('" + pel.Nombre + "', '" + pel.Descripcion + "', " + pel.Estreno + ", '" + pel.Duracion + "', " + pel.Genero + ", " + pel.Calificacion + ", null, null, null)";
+                    con.insertUpdateDelete(sql);
+                }
+                else
+                {
+                    sql = "update peliculas set nombre = '" + pel.Nombre + "', descripcion = '" + pel.Descripcion + "', estreno = " + pel.Estreno + ", duracion = '" + pel.Duracion + "', id_genero = " + pel.Genero + ", id_calificacion = " + pel.Calificacion + " where id_pelicula = " + vp[lstPeliculas.SelectedIndex].IdPelicula;
+                    con.insertUpdateDelete(sql);
+                }
+                lstPeliculas.Items.Clear();
+                mnj.cargarLista(lstPeliculas, "Peliculas", out vp);
+                Limpiar();
+                deshabilitar();
             }
-            lstPeliculas.Items.Clear();
-            mnj.cargarLista(lstPeliculas, "Peliculas",out vp);
-            Limpiar();
-            deshabilitar();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
