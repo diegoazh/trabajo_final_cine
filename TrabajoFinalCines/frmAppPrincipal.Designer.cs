@@ -824,6 +824,7 @@
             this.listarPelículasToolStripMenuItem.Name = "listarPelículasToolStripMenuItem";
             this.listarPelículasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.listarPelículasToolStripMenuItem.Text = "Listar películas";
+            this.listarPelículasToolStripMenuItem.Click += new System.EventHandler(this.listarPelículasToolStripMenuItem_Click);
             // 
             // promocionesToolStripMenuItem
             // 

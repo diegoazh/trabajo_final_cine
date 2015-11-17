@@ -310,6 +310,20 @@ namespace TrabajoFinalCines
             adaptador.Fill(dataSet, nombreTabla);
         }
 
+        public void recuperarTabla(DataSet dataSet, string nombreTabla, string query)
+        {
+            /*********************************************************
+             * Para mayor información sobre lo que hace este metodo
+             * ver el siguiente tutorial de microsoft:
+             * https://support.microsoft.com/es-es/kb/314145
+             *********************************************************/
+
+            adaptador = new SqlDataAdapter(query, conexion);
+            adaptador.FillSchema(dataSet, SchemaType.Source, nombreTabla);
+            adaptador.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+            adaptador.Fill(dataSet, nombreTabla);
+        }
+
         public void crearDataSet()
         {
             /*********************************************************

@@ -65,7 +65,7 @@
             this.btnEditar.Location = new System.Drawing.Point(97, 247);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(80, 50);
-            this.btnEditar.TabIndex = 1;
+            this.btnEditar.TabIndex = 2;
             this.btnEditar.Text = "Editar Película";
             this.btnEditar.UseVisualStyleBackColor = true;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
@@ -75,7 +75,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(183, 247);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(80, 50);
-            this.btnCancelar.TabIndex = 2;
+            this.btnCancelar.TabIndex = 3;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -85,7 +85,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(269, 247);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(80, 50);
-            this.btnGuardar.TabIndex = 3;
+            this.btnGuardar.TabIndex = 4;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -95,7 +95,7 @@
             this.btnBorrar.Location = new System.Drawing.Point(355, 247);
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.Size = new System.Drawing.Size(80, 50);
-            this.btnBorrar.TabIndex = 4;
+            this.btnBorrar.TabIndex = 5;
             this.btnBorrar.Text = "Borrar";
             this.btnBorrar.UseVisualStyleBackColor = true;
             this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
@@ -105,7 +105,7 @@
             this.btnSalir.Location = new System.Drawing.Point(441, 247);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(80, 50);
-            this.btnSalir.TabIndex = 5;
+            this.btnSalir.TabIndex = 6;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
@@ -115,7 +115,7 @@
             this.txtNombre.Location = new System.Drawing.Point(106, 17);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(149, 20);
-            this.txtNombre.TabIndex = 6;
+            this.txtNombre.TabIndex = 7;
             // 
             // lblNombre
             // 
@@ -123,7 +123,7 @@
             this.lblNombre.Location = new System.Drawing.Point(14, 21);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(44, 13);
-            this.lblNombre.TabIndex = 7;
+            this.lblNombre.TabIndex = 14;
             this.lblNombre.Text = "Nombre";
             // 
             // lblDescrip
@@ -132,7 +132,7 @@
             this.lblDescrip.Location = new System.Drawing.Point(14, 59);
             this.lblDescrip.Name = "lblDescrip";
             this.lblDescrip.Size = new System.Drawing.Size(63, 13);
-            this.lblDescrip.TabIndex = 8;
+            this.lblDescrip.TabIndex = 15;
             this.lblDescrip.Text = "Descripción";
             this.lblDescrip.Click += new System.EventHandler(this.lblDescrip_Click);
             // 
@@ -141,7 +141,7 @@
             this.txtDescripcion.Location = new System.Drawing.Point(106, 54);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(149, 20);
-            this.txtDescripcion.TabIndex = 9;
+            this.txtDescripcion.TabIndex = 8;
             // 
             // lblDuracion
             // 
@@ -149,7 +149,7 @@
             this.lblDuracion.Location = new System.Drawing.Point(14, 97);
             this.lblDuracion.Name = "lblDuracion";
             this.lblDuracion.Size = new System.Drawing.Size(50, 13);
-            this.lblDuracion.TabIndex = 13;
+            this.lblDuracion.TabIndex = 16;
             this.lblDuracion.Text = "Duración";
             // 
             // lblGenero
@@ -158,7 +158,7 @@
             this.lblGenero.Location = new System.Drawing.Point(14, 146);
             this.lblGenero.Name = "lblGenero";
             this.lblGenero.Size = new System.Drawing.Size(42, 13);
-            this.lblGenero.TabIndex = 15;
+            this.lblGenero.TabIndex = 17;
             this.lblGenero.Text = "Género";
             // 
             // cboxGenero
@@ -168,7 +168,7 @@
             this.cboxGenero.Location = new System.Drawing.Point(106, 139);
             this.cboxGenero.Name = "cboxGenero";
             this.cboxGenero.Size = new System.Drawing.Size(149, 21);
-            this.cboxGenero.TabIndex = 16;
+            this.cboxGenero.TabIndex = 11;
             // 
             // lblCalifica
             // 
@@ -176,7 +176,7 @@
             this.lblCalifica.Location = new System.Drawing.Point(14, 182);
             this.lblCalifica.Name = "lblCalifica";
             this.lblCalifica.Size = new System.Drawing.Size(61, 13);
-            this.lblCalifica.TabIndex = 17;
+            this.lblCalifica.TabIndex = 18;
             this.lblCalifica.Text = "Calificación";
             // 
             // cboxCalificacion
@@ -186,7 +186,7 @@
             this.cboxCalificacion.Location = new System.Drawing.Point(106, 175);
             this.cboxCalificacion.Name = "cboxCalificacion";
             this.cboxCalificacion.Size = new System.Drawing.Size(149, 21);
-            this.cboxCalificacion.TabIndex = 18;
+            this.cboxCalificacion.TabIndex = 12;
             // 
             // lstPeliculas
             // 
@@ -194,7 +194,7 @@
             this.lstPeliculas.Location = new System.Drawing.Point(283, 12);
             this.lstPeliculas.Name = "lstPeliculas";
             this.lstPeliculas.Size = new System.Drawing.Size(238, 212);
-            this.lstPeliculas.TabIndex = 19;
+            this.lstPeliculas.TabIndex = 1;
             this.lstPeliculas.SelectedIndexChanged += new System.EventHandler(this.lstPeliculas_SelectedIndexChanged);
             // 
             // chkEstreno
@@ -203,7 +203,7 @@
             this.chkEstreno.Location = new System.Drawing.Point(106, 206);
             this.chkEstreno.Name = "chkEstreno";
             this.chkEstreno.Size = new System.Drawing.Size(35, 17);
-            this.chkEstreno.TabIndex = 20;
+            this.chkEstreno.TabIndex = 13;
             this.chkEstreno.Text = "Si";
             this.chkEstreno.UseVisualStyleBackColor = true;
             // 
@@ -213,7 +213,7 @@
             this.lblEstreno.Location = new System.Drawing.Point(14, 207);
             this.lblEstreno.Name = "lblEstreno";
             this.lblEstreno.Size = new System.Drawing.Size(43, 13);
-            this.lblEstreno.TabIndex = 21;
+            this.lblEstreno.TabIndex = 19;
             this.lblEstreno.Text = "Estreno";
             // 
             // txtDuracion
@@ -221,7 +221,7 @@
             this.txtDuracion.Location = new System.Drawing.Point(106, 90);
             this.txtDuracion.Name = "txtDuracion";
             this.txtDuracion.Size = new System.Drawing.Size(149, 20);
-            this.txtDuracion.TabIndex = 22;
+            this.txtDuracion.TabIndex = 9;
             // 
             // lblAviso
             // 
@@ -229,7 +229,7 @@
             this.lblAviso.Location = new System.Drawing.Point(106, 112);
             this.lblAviso.Name = "lblAviso";
             this.lblAviso.Size = new System.Drawing.Size(59, 13);
-            this.lblAviso.TabIndex = 23;
+            this.lblAviso.TabIndex = 10;
             this.lblAviso.Text = "*HH:mm:ss";
             // 
             // FrmAgregarPelicula

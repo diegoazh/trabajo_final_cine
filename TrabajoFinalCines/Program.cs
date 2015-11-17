@@ -27,26 +27,26 @@ namespace TrabajoFinalCines
              * Para más detalles de lo que vamos a realizar ver el siguiente post: http://ltuttini.blogspot.com.ar/2009/09/c-winforms-realizar-tareas-antes-de.html
              * 
              ******************************************************************************************************************************************************/
-            //frmLogin log = new frmLogin(); // creamos el objeto del form
+            frmLogin log = new frmLogin(); // creamos el objeto del form
 
-            //do
-            //{
-            //    log.ShowDialog(); // lo llamamos, como necesitamos un stop (osea que inicie y se quede ahí) usamos el ShowDialog, pues el simple Show no tendría efecto a este nivel.
-            //} while (log.DialogResult != DialogResult.Yes); // mientras el DialogResult del frmLogin sea diferente de Yes (cuando hacemos clic en el boton cerrar) llamaremos al frmLogin.
+            do
+            {
+                log.ShowDialog(); // lo llamamos, como necesitamos un stop (osea que inicie y se quede ahí) usamos el ShowDialog, pues el simple Show no tendría efecto a este nivel.
+            } while (log.DialogResult != DialogResult.Yes); // mientras el DialogResult del frmLogin sea diferente de Yes (cuando hacemos clic en el boton cerrar) llamaremos al frmLogin.
 
-            //if (log.Result == "OK") // si salimos del bucle fue porque el reultado fue Yes, result de frmLogin contiene el string OK iniciamos la app, de otra forma el programa finaliza.
-            //{
-            //    if (log.Category == 1 || log.Category == 2)
-            //    {
-            //        Application.Run(new frmAdministrador());
-            //    }
-            //    else
-            //    {
-            //        Application.Run(new frmAppPrincipal());
-            //    }
-            //}
+            if (log.Result == "OK") // si salimos del bucle fue porque el reultado fue Yes, result de frmLogin contiene el string OK iniciamos la app, de otra forma el programa finaliza.
+            {
+                if (log.Category == 1 || log.Category == 2)
+                {
+                    Application.Run(new frmAdministrador());
+                }
+                else
+                {
+                    Application.Run(new frmAppPrincipal());
+                }
+            }
 
-            Application.Run(new frmListadoPeliculas());
+            //Application.Run(new frmListadoPeliculas());
         }
     }
 }

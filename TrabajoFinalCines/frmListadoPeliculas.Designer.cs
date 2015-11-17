@@ -31,7 +31,10 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.cvReportePelicula = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnFiltro = new System.Windows.Forms.Button();
+            this.txtFiltro = new System.Windows.Forms.TextBox();
             this.btnGenerarReporte = new System.Windows.Forms.Button();
+            this.lblAvisoFiltro = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -65,12 +68,32 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lblAvisoFiltro);
+            this.panel1.Controls.Add(this.btnFiltro);
+            this.panel1.Controls.Add(this.txtFiltro);
             this.panel1.Controls.Add(this.btnGenerarReporte);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 425);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(895, 69);
             this.panel1.TabIndex = 1;
+            // 
+            // btnFiltro
+            // 
+            this.btnFiltro.Location = new System.Drawing.Point(748, 24);
+            this.btnFiltro.Name = "btnFiltro";
+            this.btnFiltro.Size = new System.Drawing.Size(138, 23);
+            this.btnFiltro.TabIndex = 2;
+            this.btnFiltro.Text = "Establecer filtro";
+            this.btnFiltro.UseVisualStyleBackColor = true;
+            this.btnFiltro.Click += new System.EventHandler(this.btnFiltro_Click);
+            // 
+            // txtFiltro
+            // 
+            this.txtFiltro.Location = new System.Drawing.Point(592, 26);
+            this.txtFiltro.Name = "txtFiltro";
+            this.txtFiltro.Size = new System.Drawing.Size(150, 20);
+            this.txtFiltro.TabIndex = 1;
             // 
             // btnGenerarReporte
             // 
@@ -80,6 +103,16 @@
             this.btnGenerarReporte.TabIndex = 0;
             this.btnGenerarReporte.Text = "Generar Reporte";
             this.btnGenerarReporte.UseVisualStyleBackColor = true;
+            this.btnGenerarReporte.Click += new System.EventHandler(this.btnGenerarReporte_Click);
+            // 
+            // lblAvisoFiltro
+            // 
+            this.lblAvisoFiltro.AutoSize = true;
+            this.lblAvisoFiltro.Location = new System.Drawing.Point(589, 8);
+            this.lblAvisoFiltro.Name = "lblAvisoFiltro";
+            this.lblAvisoFiltro.Size = new System.Drawing.Size(238, 13);
+            this.lblAvisoFiltro.TabIndex = 4;
+            this.lblAvisoFiltro.Text = "*Seleccione un criterio del nombre de la película.";
             // 
             // frmListadoPeliculas
             // 
@@ -92,6 +125,7 @@
             this.Load += new System.EventHandler(this.frmListadoPeliculas_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -102,5 +136,8 @@
         private CrystalDecisions.Windows.Forms.CrystalReportViewer cvReportePelicula;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnGenerarReporte;
+        private System.Windows.Forms.Button btnFiltro;
+        private System.Windows.Forms.TextBox txtFiltro;
+        private System.Windows.Forms.Label lblAvisoFiltro;
     }
 }

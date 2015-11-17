@@ -27,5 +27,11 @@ namespace TrabajoFinalCines
             FrmAgregarPelicula frmAP = new FrmAgregarPelicula();
             frmAP.ShowDialog();
         }
+
+        private void listarPelículasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmListadoPeliculas frmLP = new frmListadoPeliculas();
+            frmLP.ShowDialog();
+        }
     }
 }
